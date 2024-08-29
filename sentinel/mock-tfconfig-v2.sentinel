@@ -1,0 +1,156 @@
+import "strings"
+
+providers = {
+	"google": {
+		"alias": "",
+		"config": {
+			"project": {
+				"constant_value": "hc-7d2b1bb11c4f43dea1787d05735",
+			},
+			"region": {
+				"constant_value": "us-central1",
+			},
+		},
+		"full_name":           "registry.terraform.io/hashicorp/google",
+		"module_address":      "",
+		"name":                "google",
+		"provider_config_key": "google",
+		"version_constraint":  "6.0.1",
+	},
+}
+
+resources = {
+	"data.google_project.project": {
+		"address":             "data.google_project.project",
+		"config":              {},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "data",
+		"module_address":      "",
+		"name":                "project",
+		"provider_config_key": "google",
+		"provisioners":        [],
+		"type":                "google_project",
+	},
+	"google_artifact_registry_repository.test": {
+		"address": "google_artifact_registry_repository.test",
+		"config": {
+			"description": {
+				"constant_value": "example docker repository with cmek",
+			},
+			"format": {
+				"constant_value": "DOCKER",
+			},
+			"kms_key_name": {
+				"references": [
+					"google_kms_crypto_key.crypto_key.id",
+					"google_kms_crypto_key.crypto_key",
+				],
+			},
+			"repository_id": {
+				"constant_value": "my-repository",
+			},
+		},
+		"count": {},
+		"depends_on": [
+			"google_kms_crypto_key_iam_member.crypto_key",
+		],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "",
+		"name":                "test",
+		"provider_config_key": "google",
+		"provisioners":        [],
+		"type":                "google_artifact_registry_repository",
+	},
+	"google_kms_crypto_key.crypto_key": {
+		"address": "google_kms_crypto_key.crypto_key",
+		"config": {
+			"key_ring": {
+				"references": [
+					"google_kms_key_ring.key_ring.id",
+					"google_kms_key_ring.key_ring",
+				],
+			},
+			"name": {
+				"constant_value": "crypto-key-example",
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "",
+		"name":                "crypto_key",
+		"provider_config_key": "google",
+		"provisioners":        [],
+		"type":                "google_kms_crypto_key",
+	},
+	"google_kms_crypto_key_iam_member.crypto_key": {
+		"address": "google_kms_crypto_key_iam_member.crypto_key",
+		"config": {
+			"crypto_key_id": {
+				"references": [
+					"google_kms_crypto_key.crypto_key.id",
+					"google_kms_crypto_key.crypto_key",
+				],
+			},
+			"member": {
+				"references": [
+					"data.google_project.project.number",
+					"data.google_project.project",
+				],
+			},
+			"role": {
+				"constant_value": "roles/cloudkms.cryptoKeyEncrypterDecrypter",
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "",
+		"name":                "crypto_key",
+		"provider_config_key": "google",
+		"provisioners":        [],
+		"type":                "google_kms_crypto_key_iam_member",
+	},
+	"google_kms_key_ring.key_ring": {
+		"address": "google_kms_key_ring.key_ring",
+		"config": {
+			"location": {
+				"constant_value": "us-central1",
+			},
+			"name": {
+				"constant_value": "keyring-example",
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "",
+		"name":                "key_ring",
+		"provider_config_key": "google",
+		"provisioners":        [],
+		"type":                "google_kms_key_ring",
+	},
+}
+
+provisioners = {}
+
+variables = {}
+
+outputs = {}
+
+module_calls = {}
+
+strip_index = func(addr) {
+	s = strings.split(addr, ".")
+	for s as i, v {
+		s[i] = strings.split(v, "[")[0]
+	}
+
+	return strings.join(s, ".")
+}
