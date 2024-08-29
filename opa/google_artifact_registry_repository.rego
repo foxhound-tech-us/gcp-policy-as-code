@@ -11,17 +11,17 @@ resources := [resource_change |
 check_cmek_null[msg] if {
 	some resource in resources
 	resource.change.after.kms_key_name == null
-	msg := sprintf("Resource %s needs to have CMEK provided.", [resource.address])
+	msg := [sprintf("Resource %s needs to have CMEK provided.", [resource.address])]
 }
 
 check_cmek_empty_string[msg] if {
 	some resource in resources
 	resource.change.after.kms_key_name == ""
-	msg := sprintf("Resource %s needs to have CMEK provided.", [resource.address])
+	msg := [sprintf("Resource %s needs to have CMEK provided.", [resource.address])]
 }
 
 check_format[msg] if {
 	some resource in resources
 	not resource.change.after.format == "DOCKER"
-	msg := sprintf("Resource %s can only be a Docker repository.", [resource.address])
+	msg := [sprintf("Resource %s can only be a Docker repository.", [resource.address])]
 }
