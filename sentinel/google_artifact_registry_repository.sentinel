@@ -9,10 +9,18 @@ allGCPArtifactRegistryRepositoryResources = filter tfplan.resource_changes as _,
 
 ensureCMEK = rule {
     all allGCPArtifactRegistryRepositoryResources as _, GCPArtifactRegistryRepository {
-        GCPArtifactRegistryRepository.change.after.kms_key_name is not null
+       (GCPArtifactRegistryRepository.change.after.kms_key_name is not null or
+        GCPArtifactRegistryRepository.change.after.kms_key_name is not "")
+    }
+}
+
+ensureFormat = rule {
+    all allGCPArtifactRegistryRepositoryResources as _, GCPArtifactRegistryRepository {
+        GCPArtifactRegistryRepository.change.after.format is "DOCKER"
     }
 }
 
 main = rule {
-    ensureCMEK
+    ensureCMEK and
+    ensureFormat
 }
