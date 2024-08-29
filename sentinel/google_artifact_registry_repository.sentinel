@@ -1,6 +1,4 @@
-import "tfplan/v2" as tfplanv2
-
-allGCPArtifactRegistryRepositoryResources = filter tfplanv2.resource_changes as _, resource_changes {
+allGCPArtifactRegistryRepositoryResources = filter tfplan/v2.resource_changes as _, resource_changes {
     resource_changes.type is "google_artifact_registry_repository" and
     resource_changes.mode is "managed" and
     (resource_changes.change.actions contains "create" or
