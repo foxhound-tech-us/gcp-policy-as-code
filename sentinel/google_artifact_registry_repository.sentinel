@@ -7,10 +7,15 @@ allGCPArtifactRegistryRepositoryResources = filter tfplan.resource_changes as _,
 			resource_changes.change.actions is ["update"])
 }
 
-ensureCMEK = rule {
+ensureCMEKNotNull = rule {
     all allGCPArtifactRegistryRepositoryResources as _, GCPArtifactRegistryRepository {
-       (GCPArtifactRegistryRepository.change.after.kms_key_name is not null or
-        GCPArtifactRegistryRepository.change.after.kms_key_name is not "")
+       GCPArtifactRegistryRepository.change.after.kms_key_name is not null
+    }
+}
+
+ensureCMEKNotEmptyString = rule {
+    all allGCPArtifactRegistryRepositoryResources as _, GCPArtifactRegistryRepository {
+       GCPArtifactRegistryRepository.change.after.kms_key_name is not ""
     }
 }
 
@@ -21,6 +26,7 @@ ensureFormat = rule {
 }
 
 main = rule {
-    ensureCMEK and
+    ensureCMEKNotNull and
+    ensureCMEKNotEmptyString and
     ensureFormat
 }
