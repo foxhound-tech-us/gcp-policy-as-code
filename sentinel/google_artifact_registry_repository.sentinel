@@ -9,13 +9,15 @@ allGCPArtifactRegistryRepositoryResources = filter tfplan.resource_changes as _,
 
 ensureCMEKNotNull = rule {
     all allGCPArtifactRegistryRepositoryResources as _, GCPArtifactRegistryRepository {
-       GCPArtifactRegistryRepository.change.after.kms_key_name is not null
+       GCPArtifactRegistryRepository.change.after.kms_key_name is not null or
+       GCPArtifactRegistryRepository.change.after_unknown.kms_key_name is true
     }
 }
 
 ensureCMEKNotEmptyString = rule {
     all allGCPArtifactRegistryRepositoryResources as _, GCPArtifactRegistryRepository {
-       GCPArtifactRegistryRepository.change.after.kms_key_name is not ""
+       GCPArtifactRegistryRepository.change.after.kms_key_name is not "" or
+       GCPArtifactRegistryRepository.change.after_unknown.kms_key_name is true
     }
 }
 
