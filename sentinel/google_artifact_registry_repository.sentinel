@@ -1,5 +1,4 @@
 import "tfplan/v2" as tfplan
-import "types"
 
 allGCPArtifactRegistryRepositoryResources = filter tfplan.resource_changes as _, resource_changes {
     resource_changes.type is "google_artifact_registry_repository" and
@@ -27,8 +26,8 @@ getCMEKStatus = func(property) {
 }
 
 getFormat = func(property) {
-    if types.type_of(property.change.after.format) is "undefined" {
-        if types.type_of(property.change.after_unknown.format) is "undefined" {
+    if property.change.after.format else "notFound" == "notFound" {
+        if property.change.after_unknown.format else "notFound" == "notFound" {
             print("Repository format must be provided and must be \"DOCKER\"")
             return false
         }
