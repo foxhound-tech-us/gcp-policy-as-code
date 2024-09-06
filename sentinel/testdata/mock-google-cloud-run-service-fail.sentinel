@@ -1,0 +1,3382 @@
+terraform_version = "1.9.5"
+
+planned_values = {
+	"outputs": {},
+	"resources": {
+		"google_cloud_run_service.test_cloud_run_service": {
+			"address":        "google_cloud_run_service.test_cloud_run_service",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "",
+			"name":           "test_cloud_run_service",
+			"provider_name":  "registry.terraform.io/hashicorp/google",
+			"tainted":        false,
+			"type":           "google_cloud_run_service",
+			"values": {
+				"autogenerate_revision_name": false,
+				"id":       "locations/us-central1/namespaces/hc-7d2b1bb11c4f43dea1787d05735/services/cloud-run-service-test",
+				"location": "us-central1",
+				"metadata": [
+					{
+						"annotations": {},
+						"effective_annotations": {
+							"run.googleapis.com/ingress":        "all",
+							"run.googleapis.com/ingress-status": "all",
+							"run.googleapis.com/operation-id":   "4c63d938-4152-4b3f-99b3-c312416b074b",
+							"run.googleapis.com/urls":           "[\"https://cloud-run-service-test-1059522574692.us-central1.run.app\",\"https://cloud-run-service-test-cuir2kwoua-uc.a.run.app\"]",
+							"serving.knative.dev/creator":       "terraform@hc-7d2b1bb11c4f43dea1787d05735.iam.gserviceaccount.com",
+							"serving.knative.dev/lastModifier":  "terraform@hc-7d2b1bb11c4f43dea1787d05735.iam.gserviceaccount.com",
+						},
+						"effective_labels": {
+							"cloud.googleapis.com/location": "us-central1",
+						},
+						"generation":       1,
+						"labels":           {},
+						"namespace":        "hc-7d2b1bb11c4f43dea1787d05735",
+						"resource_version": "AAYhT39eUWk",
+						"self_link":        "/apis/serving.knative.dev/v1/namespaces/1059522574692/services/cloud-run-service-test",
+						"terraform_labels": {},
+						"uid":              "bb376b66-7e1c-4e72-a2a8-23be62aa2ff6",
+					},
+				],
+				"name":    "cloud-run-service-test",
+				"project": "hc-7d2b1bb11c4f43dea1787d05735",
+				"status": [
+					{
+						"conditions": [
+							{
+								"message": "",
+								"reason":  "",
+								"status":  "True",
+								"type":    "Ready",
+							},
+							{
+								"message": "",
+								"reason":  "",
+								"status":  "True",
+								"type":    "ConfigurationsReady",
+							},
+							{
+								"message": "",
+								"reason":  "",
+								"status":  "True",
+								"type":    "RoutesReady",
+							},
+						],
+						"latest_created_revision_name": "cloud-run-service-test-00001-l6g",
+						"latest_ready_revision_name":   "cloud-run-service-test-00001-l6g",
+						"observed_generation":          1,
+						"traffic": [
+							{
+								"latest_revision": true,
+								"percent":         100,
+								"revision_name":   "cloud-run-service-test-00001-l6g",
+								"tag":             "",
+								"url":             "",
+							},
+						],
+						"url": "https://cloud-run-service-test-cuir2kwoua-uc.a.run.app",
+					},
+				],
+				"template": [
+					{
+						"metadata": [
+							{
+								"annotations": {
+									"autoscaling.knative.dev/maxScale":  "100",
+									"run.googleapis.com/encryption-key": "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+								},
+								"generation": 0,
+								"labels": {
+									"run.googleapis.com/startupProbeType": "Default",
+								},
+								"name":             "",
+								"namespace":        "",
+								"resource_version": "",
+								"self_link":        "",
+								"uid":              "",
+							},
+						],
+						"spec": [
+							{
+								"container_concurrency": 80,
+								"containers": [
+									{
+										"args":           [],
+										"command":        [],
+										"env":            [],
+										"env_from":       [],
+										"image":          "us-docker.pkg.dev/cloudrun/container/hello",
+										"liveness_probe": [],
+										"name":           "",
+										"ports": [
+											{
+												"container_port": 8080,
+												"name":           "http1",
+												"protocol":       "",
+											},
+										],
+										"resources": [
+											{
+												"limits": {
+													"cpu":    "1000m",
+													"memory": "512Mi",
+												},
+												"requests": {},
+											},
+										],
+										"startup_probe": [
+											{
+												"failure_threshold":     1,
+												"grpc":                  [],
+												"http_get":              [],
+												"initial_delay_seconds": 0,
+												"period_seconds":        240,
+												"tcp_socket": [
+													{
+														"port": 8080,
+													},
+												],
+												"timeout_seconds": 240,
+											},
+										],
+										"volume_mounts": [],
+										"working_dir":   "",
+									},
+								],
+								"service_account_name": "1059522574692-compute@developer.gserviceaccount.com",
+								"serving_state":        "",
+								"timeout_seconds":      300,
+								"volumes":              [],
+							},
+						],
+					},
+				],
+				"timeouts": null,
+				"traffic": [
+					{
+						"latest_revision": true,
+						"percent":         100,
+						"revision_name":   "",
+						"tag":             "",
+						"url":             "",
+					},
+				],
+			},
+		},
+		"google_kms_crypto_key.crypto_key": {
+			"address":        "google_kms_crypto_key.crypto_key",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "",
+			"name":           "crypto_key",
+			"provider_name":  "registry.terraform.io/hashicorp/google",
+			"tainted":        false,
+			"type":           "google_kms_crypto_key",
+			"values": {
+				"crypto_key_backend":         "",
+				"destroy_scheduled_duration": "2592000s",
+				"effective_labels": {
+					"goog-terraform-provisioned": "true",
+				},
+				"id":          "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+				"import_only": false,
+				"key_ring":    "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2",
+				"labels":      {},
+				"name":        "crypto-key-example",
+				"primary": [
+					{
+						"name":  "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example/cryptoKeyVersions/1",
+						"state": "ENABLED",
+					},
+				],
+				"purpose":                       "ENCRYPT_DECRYPT",
+				"rotation_period":               "",
+				"skip_initial_version_creation": false,
+				"terraform_labels": {
+					"goog-terraform-provisioned": "true",
+				},
+				"timeouts": null,
+				"version_template": [
+					{
+						"algorithm":        "GOOGLE_SYMMETRIC_ENCRYPTION",
+						"protection_level": "SOFTWARE",
+					},
+				],
+			},
+		},
+		"google_kms_crypto_key_iam_member.crypto_key": {
+			"address":        "google_kms_crypto_key_iam_member.crypto_key",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "",
+			"name":           "crypto_key",
+			"provider_name":  "registry.terraform.io/hashicorp/google",
+			"tainted":        false,
+			"type":           "google_kms_crypto_key_iam_member",
+			"values": {
+				"condition":     [],
+				"crypto_key_id": "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+				"etag":          "BwYhT37bHGc=",
+				"id":            "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example/roles/cloudkms.cryptoKeyEncrypterDecrypter/serviceAccount:service-1059522574692@gcp-sa-artifactregistry.iam.gserviceaccount.com",
+				"member":        "serviceAccount:service-1059522574692@gcp-sa-artifactregistry.iam.gserviceaccount.com",
+				"role":          "roles/cloudkms.cryptoKeyEncrypterDecrypter",
+			},
+		},
+		"google_kms_crypto_key_iam_member.crypto_key2": {
+			"address":        "google_kms_crypto_key_iam_member.crypto_key2",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "",
+			"name":           "crypto_key2",
+			"provider_name":  "registry.terraform.io/hashicorp/google",
+			"tainted":        false,
+			"type":           "google_kms_crypto_key_iam_member",
+			"values": {
+				"condition":     [],
+				"crypto_key_id": "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+				"etag":          "BwYhT37bHGc=",
+				"id":            "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example/roles/cloudkms.cryptoKeyEncrypterDecrypter/serviceAccount:service-1059522574692@serverless-robot-prod.iam.gserviceaccount.com",
+				"member":        "serviceAccount:service-1059522574692@serverless-robot-prod.iam.gserviceaccount.com",
+				"role":          "roles/cloudkms.cryptoKeyEncrypterDecrypter",
+			},
+		},
+		"google_kms_key_ring.key_ring": {
+			"address":        "google_kms_key_ring.key_ring",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "",
+			"name":           "key_ring",
+			"provider_name":  "registry.terraform.io/hashicorp/google",
+			"tainted":        false,
+			"type":           "google_kms_key_ring",
+			"values": {
+				"id":       "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2",
+				"location": "us-central1",
+				"name":     "keyring-example2",
+				"project":  "hc-7d2b1bb11c4f43dea1787d05735",
+				"timeouts": null,
+			},
+		},
+	},
+}
+
+variables = {}
+
+resource_changes = {
+	"google_cloud_run_service.test_cloud_run_service": {
+		"address": "google_cloud_run_service.test_cloud_run_service",
+		"change": {
+			"actions": [
+				"update",
+			],
+			"after": {
+				"autogenerate_revision_name": false,
+				"id":       "locations/us-central1/namespaces/hc-7d2b1bb11c4f43dea1787d05735/services/cloud-run-service-test",
+				"location": "us-central1",
+				"metadata": [
+					{
+						"annotations": {},
+						"effective_annotations": {
+							"run.googleapis.com/ingress":        "all",
+							"run.googleapis.com/ingress-status": "all",
+							"run.googleapis.com/operation-id":   "4c63d938-4152-4b3f-99b3-c312416b074b",
+							"run.googleapis.com/urls":           "[\"https://cloud-run-service-test-1059522574692.us-central1.run.app\",\"https://cloud-run-service-test-cuir2kwoua-uc.a.run.app\"]",
+							"serving.knative.dev/creator":       "terraform@hc-7d2b1bb11c4f43dea1787d05735.iam.gserviceaccount.com",
+							"serving.knative.dev/lastModifier":  "terraform@hc-7d2b1bb11c4f43dea1787d05735.iam.gserviceaccount.com",
+						},
+						"effective_labels": {
+							"cloud.googleapis.com/location": "us-central1",
+						},
+						"generation":       1,
+						"labels":           {},
+						"namespace":        "hc-7d2b1bb11c4f43dea1787d05735",
+						"resource_version": "AAYhT39eUWk",
+						"self_link":        "/apis/serving.knative.dev/v1/namespaces/1059522574692/services/cloud-run-service-test",
+						"terraform_labels": {},
+						"uid":              "bb376b66-7e1c-4e72-a2a8-23be62aa2ff6",
+					},
+				],
+				"name":    "cloud-run-service-test",
+				"project": "hc-7d2b1bb11c4f43dea1787d05735",
+				"status": [
+					{
+						"conditions": [
+							{
+								"message": "",
+								"reason":  "",
+								"status":  "True",
+								"type":    "Ready",
+							},
+							{
+								"message": "",
+								"reason":  "",
+								"status":  "True",
+								"type":    "ConfigurationsReady",
+							},
+							{
+								"message": "",
+								"reason":  "",
+								"status":  "True",
+								"type":    "RoutesReady",
+							},
+						],
+						"latest_created_revision_name": "cloud-run-service-test-00001-l6g",
+						"latest_ready_revision_name":   "cloud-run-service-test-00001-l6g",
+						"observed_generation":          1,
+						"traffic": [
+							{
+								"latest_revision": true,
+								"percent":         100,
+								"revision_name":   "cloud-run-service-test-00001-l6g",
+								"tag":             "",
+								"url":             "",
+							},
+						],
+						"url": "https://cloud-run-service-test-cuir2kwoua-uc.a.run.app",
+					},
+				],
+				"template": [
+					{
+						"metadata": [
+							{
+								"annotations": {
+									"autoscaling.knative.dev/maxScale":  "100",
+								},
+								"generation": 0,
+								"labels": {
+									"run.googleapis.com/startupProbeType": "Default",
+								},
+								"name":             "",
+								"namespace":        "",
+								"resource_version": "",
+								"self_link":        "",
+								"uid":              "",
+							},
+						],
+						"spec": [
+							{
+								"container_concurrency": 80,
+								"containers": [
+									{
+										"args":           [],
+										"command":        [],
+										"env":            [],
+										"env_from":       [],
+										"image":          "us-docker.pkg.dev/cloudrun/container/hello",
+										"liveness_probe": [],
+										"name":           "",
+										"ports": [
+											{
+												"container_port": 8080,
+												"name":           "http",
+												"protocol":       "",
+											},
+										],
+										"resources": [
+											{
+												"limits": {
+													"cpu":    "1000m",
+													"memory": "512Mi",
+												},
+												"requests": {},
+											},
+										],
+										"startup_probe": [
+											{
+												"failure_threshold":     1,
+												"grpc":                  [],
+												"http_get":              [],
+												"initial_delay_seconds": 0,
+												"period_seconds":        240,
+												"tcp_socket": [
+													{
+														"port": 8080,
+													},
+												],
+												"timeout_seconds": 240,
+											},
+										],
+										"volume_mounts": [],
+										"working_dir":   "",
+									},
+								],
+								"service_account_name": "1059522574692-compute@developer.gserviceaccount.com",
+								"serving_state":        "",
+								"timeout_seconds":      300,
+								"volumes":              [],
+							},
+						],
+					},
+				],
+				"timeouts": null,
+				"traffic": [
+					{
+						"latest_revision": true,
+						"percent":         100,
+						"revision_name":   "",
+						"tag":             "",
+						"url":             "",
+					},
+				],
+			},
+			"after_unknown": {},
+			"before": {
+				"autogenerate_revision_name": false,
+				"id":       "locations/us-central1/namespaces/hc-7d2b1bb11c4f43dea1787d05735/services/cloud-run-service-test",
+				"location": "us-central1",
+				"metadata": [
+					{
+						"annotations": {},
+						"effective_annotations": {
+							"run.googleapis.com/ingress":        "all",
+							"run.googleapis.com/ingress-status": "all",
+							"run.googleapis.com/operation-id":   "4c63d938-4152-4b3f-99b3-c312416b074b",
+							"run.googleapis.com/urls":           "[\"https://cloud-run-service-test-1059522574692.us-central1.run.app\",\"https://cloud-run-service-test-cuir2kwoua-uc.a.run.app\"]",
+							"serving.knative.dev/creator":       "terraform@hc-7d2b1bb11c4f43dea1787d05735.iam.gserviceaccount.com",
+							"serving.knative.dev/lastModifier":  "terraform@hc-7d2b1bb11c4f43dea1787d05735.iam.gserviceaccount.com",
+						},
+						"effective_labels": {
+							"cloud.googleapis.com/location": "us-central1",
+						},
+						"generation":       1,
+						"labels":           {},
+						"namespace":        "hc-7d2b1bb11c4f43dea1787d05735",
+						"resource_version": "AAYhT39eUWk",
+						"self_link":        "/apis/serving.knative.dev/v1/namespaces/1059522574692/services/cloud-run-service-test",
+						"terraform_labels": {},
+						"uid":              "bb376b66-7e1c-4e72-a2a8-23be62aa2ff6",
+					},
+				],
+				"name":    "cloud-run-service-test",
+				"project": "hc-7d2b1bb11c4f43dea1787d05735",
+				"status": [
+					{
+						"conditions": [
+							{
+								"message": "",
+								"reason":  "",
+								"status":  "True",
+								"type":    "Ready",
+							},
+							{
+								"message": "",
+								"reason":  "",
+								"status":  "True",
+								"type":    "ConfigurationsReady",
+							},
+							{
+								"message": "",
+								"reason":  "",
+								"status":  "True",
+								"type":    "RoutesReady",
+							},
+						],
+						"latest_created_revision_name": "cloud-run-service-test-00001-l6g",
+						"latest_ready_revision_name":   "cloud-run-service-test-00001-l6g",
+						"observed_generation":          1,
+						"traffic": [
+							{
+								"latest_revision": true,
+								"percent":         100,
+								"revision_name":   "cloud-run-service-test-00001-l6g",
+								"tag":             "",
+								"url":             "",
+							},
+						],
+						"url": "https://cloud-run-service-test-cuir2kwoua-uc.a.run.app",
+					},
+				],
+				"template": [
+					{
+						"metadata": [
+							{
+								"annotations": {
+									"autoscaling.knative.dev/maxScale":                   "100",
+									"run.googleapis.com/encryption-key":                  "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+									"run.googleapis.com/post-key-revocation-action-type": "prevent-new",
+								},
+								"generation": 0,
+								"labels": {
+									"run.googleapis.com/startupProbeType": "Default",
+								},
+								"name":             "",
+								"namespace":        "",
+								"resource_version": "",
+								"self_link":        "",
+								"uid":              "",
+							},
+						],
+						"spec": [
+							{
+								"container_concurrency": 80,
+								"containers": [
+									{
+										"args":           [],
+										"command":        [],
+										"env":            [],
+										"env_from":       [],
+										"image":          "us-docker.pkg.dev/cloudrun/container/hello",
+										"liveness_probe": [],
+										"name":           "",
+										"ports": [
+											{
+												"container_port": 8080,
+												"name":           "http1",
+												"protocol":       "",
+											},
+										],
+										"resources": [
+											{
+												"limits": {
+													"cpu":    "1000m",
+													"memory": "512Mi",
+												},
+												"requests": {},
+											},
+										],
+										"startup_probe": [
+											{
+												"failure_threshold":     1,
+												"grpc":                  [],
+												"http_get":              [],
+												"initial_delay_seconds": 0,
+												"period_seconds":        240,
+												"tcp_socket": [
+													{
+														"port": 8080,
+													},
+												],
+												"timeout_seconds": 240,
+											},
+										],
+										"volume_mounts": [],
+										"working_dir":   "",
+									},
+								],
+								"service_account_name": "1059522574692-compute@developer.gserviceaccount.com",
+								"serving_state":        "",
+								"timeout_seconds":      300,
+								"volumes":              [],
+							},
+						],
+					},
+				],
+				"timeouts": null,
+				"traffic": [
+					{
+						"latest_revision": true,
+						"percent":         100,
+						"revision_name":   "",
+						"tag":             "",
+						"url":             "",
+					},
+				],
+			},
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "test_cloud_run_service",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"type":           "google_cloud_run_service",
+	},
+	"google_kms_crypto_key.crypto_key": {
+		"address": "google_kms_crypto_key.crypto_key",
+		"change": {
+			"actions": [
+				"no-op",
+			],
+			"after": {
+				"crypto_key_backend":         "",
+				"destroy_scheduled_duration": "2592000s",
+				"effective_labels": {
+					"goog-terraform-provisioned": "true",
+				},
+				"id":          "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+				"import_only": false,
+				"key_ring":    "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2",
+				"labels":      {},
+				"name":        "crypto-key-example",
+				"primary": [
+					{
+						"name":  "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example/cryptoKeyVersions/1",
+						"state": "ENABLED",
+					},
+				],
+				"purpose":                       "ENCRYPT_DECRYPT",
+				"rotation_period":               "",
+				"skip_initial_version_creation": false,
+				"terraform_labels": {
+					"goog-terraform-provisioned": "true",
+				},
+				"timeouts": null,
+				"version_template": [
+					{
+						"algorithm":        "GOOGLE_SYMMETRIC_ENCRYPTION",
+						"protection_level": "SOFTWARE",
+					},
+				],
+			},
+			"after_unknown": {},
+			"before": {
+				"crypto_key_backend":         "",
+				"destroy_scheduled_duration": "2592000s",
+				"effective_labels": {
+					"goog-terraform-provisioned": "true",
+				},
+				"id":          "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+				"import_only": false,
+				"key_ring":    "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2",
+				"labels":      {},
+				"name":        "crypto-key-example",
+				"primary": [
+					{
+						"name":  "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example/cryptoKeyVersions/1",
+						"state": "ENABLED",
+					},
+				],
+				"purpose":                       "ENCRYPT_DECRYPT",
+				"rotation_period":               "",
+				"skip_initial_version_creation": false,
+				"terraform_labels": {
+					"goog-terraform-provisioned": "true",
+				},
+				"timeouts": null,
+				"version_template": [
+					{
+						"algorithm":        "GOOGLE_SYMMETRIC_ENCRYPTION",
+						"protection_level": "SOFTWARE",
+					},
+				],
+			},
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "crypto_key",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"type":           "google_kms_crypto_key",
+	},
+	"google_kms_crypto_key_iam_member.crypto_key": {
+		"address": "google_kms_crypto_key_iam_member.crypto_key",
+		"change": {
+			"actions": [
+				"no-op",
+			],
+			"after": {
+				"condition":     [],
+				"crypto_key_id": "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+				"etag":          "BwYhT37bHGc=",
+				"id":            "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example/roles/cloudkms.cryptoKeyEncrypterDecrypter/serviceAccount:service-1059522574692@gcp-sa-artifactregistry.iam.gserviceaccount.com",
+				"member":        "serviceAccount:service-1059522574692@gcp-sa-artifactregistry.iam.gserviceaccount.com",
+				"role":          "roles/cloudkms.cryptoKeyEncrypterDecrypter",
+			},
+			"after_unknown": {},
+			"before": {
+				"condition":     [],
+				"crypto_key_id": "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+				"etag":          "BwYhT37bHGc=",
+				"id":            "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example/roles/cloudkms.cryptoKeyEncrypterDecrypter/serviceAccount:service-1059522574692@gcp-sa-artifactregistry.iam.gserviceaccount.com",
+				"member":        "serviceAccount:service-1059522574692@gcp-sa-artifactregistry.iam.gserviceaccount.com",
+				"role":          "roles/cloudkms.cryptoKeyEncrypterDecrypter",
+			},
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "crypto_key",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"type":           "google_kms_crypto_key_iam_member",
+	},
+	"google_kms_crypto_key_iam_member.crypto_key2": {
+		"address": "google_kms_crypto_key_iam_member.crypto_key2",
+		"change": {
+			"actions": [
+				"no-op",
+			],
+			"after": {
+				"condition":     [],
+				"crypto_key_id": "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+				"etag":          "BwYhT37bHGc=",
+				"id":            "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example/roles/cloudkms.cryptoKeyEncrypterDecrypter/serviceAccount:service-1059522574692@serverless-robot-prod.iam.gserviceaccount.com",
+				"member":        "serviceAccount:service-1059522574692@serverless-robot-prod.iam.gserviceaccount.com",
+				"role":          "roles/cloudkms.cryptoKeyEncrypterDecrypter",
+			},
+			"after_unknown": {},
+			"before": {
+				"condition":     [],
+				"crypto_key_id": "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+				"etag":          "BwYhT37bHGc=",
+				"id":            "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example/roles/cloudkms.cryptoKeyEncrypterDecrypter/serviceAccount:service-1059522574692@serverless-robot-prod.iam.gserviceaccount.com",
+				"member":        "serviceAccount:service-1059522574692@serverless-robot-prod.iam.gserviceaccount.com",
+				"role":          "roles/cloudkms.cryptoKeyEncrypterDecrypter",
+			},
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "crypto_key2",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"type":           "google_kms_crypto_key_iam_member",
+	},
+	"google_kms_key_ring.key_ring": {
+		"address": "google_kms_key_ring.key_ring",
+		"change": {
+			"actions": [
+				"no-op",
+			],
+			"after": {
+				"id":       "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2",
+				"location": "us-central1",
+				"name":     "keyring-example2",
+				"project":  "hc-7d2b1bb11c4f43dea1787d05735",
+				"timeouts": null,
+			},
+			"after_unknown": {},
+			"before": {
+				"id":       "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2",
+				"location": "us-central1",
+				"name":     "keyring-example2",
+				"project":  "hc-7d2b1bb11c4f43dea1787d05735",
+				"timeouts": null,
+			},
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "key_ring",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"type":           "google_kms_key_ring",
+	},
+}
+
+resource_drift = {
+	"google_cloud_run_service.test_cloud_run_service": {
+		"address": "google_cloud_run_service.test_cloud_run_service",
+		"change": {
+			"actions": [
+				"update",
+			],
+			"after": {
+				"autogenerate_revision_name": false,
+				"id":       "locations/us-central1/namespaces/hc-7d2b1bb11c4f43dea1787d05735/services/cloud-run-service-test",
+				"location": "us-central1",
+				"metadata": [
+					{
+						"annotations": {},
+						"effective_annotations": {
+							"run.googleapis.com/ingress":        "all",
+							"run.googleapis.com/ingress-status": "all",
+							"run.googleapis.com/operation-id":   "4c63d938-4152-4b3f-99b3-c312416b074b",
+							"run.googleapis.com/urls":           "[\"https://cloud-run-service-test-1059522574692.us-central1.run.app\",\"https://cloud-run-service-test-cuir2kwoua-uc.a.run.app\"]",
+							"serving.knative.dev/creator":       "terraform@hc-7d2b1bb11c4f43dea1787d05735.iam.gserviceaccount.com",
+							"serving.knative.dev/lastModifier":  "terraform@hc-7d2b1bb11c4f43dea1787d05735.iam.gserviceaccount.com",
+						},
+						"effective_labels": {
+							"cloud.googleapis.com/location": "us-central1",
+						},
+						"generation":       1,
+						"labels":           {},
+						"namespace":        "hc-7d2b1bb11c4f43dea1787d05735",
+						"resource_version": "AAYhT39eUWk",
+						"self_link":        "/apis/serving.knative.dev/v1/namespaces/1059522574692/services/cloud-run-service-test",
+						"terraform_labels": {},
+						"uid":              "bb376b66-7e1c-4e72-a2a8-23be62aa2ff6",
+					},
+				],
+				"name":    "cloud-run-service-test",
+				"project": "hc-7d2b1bb11c4f43dea1787d05735",
+				"status": [
+					{
+						"conditions": [
+							{
+								"message": "",
+								"reason":  "",
+								"status":  "True",
+								"type":    "Ready",
+							},
+							{
+								"message": "",
+								"reason":  "",
+								"status":  "True",
+								"type":    "ConfigurationsReady",
+							},
+							{
+								"message": "",
+								"reason":  "",
+								"status":  "True",
+								"type":    "RoutesReady",
+							},
+						],
+						"latest_created_revision_name": "cloud-run-service-test-00001-l6g",
+						"latest_ready_revision_name":   "cloud-run-service-test-00001-l6g",
+						"observed_generation":          1,
+						"traffic": [
+							{
+								"latest_revision": true,
+								"percent":         100,
+								"revision_name":   "cloud-run-service-test-00001-l6g",
+								"tag":             "",
+								"url":             "",
+							},
+						],
+						"url": "https://cloud-run-service-test-cuir2kwoua-uc.a.run.app",
+					},
+				],
+				"template": [
+					{
+						"metadata": [
+							{
+								"annotations": {
+									"autoscaling.knative.dev/maxScale":                   "100",
+									"run.googleapis.com/encryption-key":                  "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+									"run.googleapis.com/post-key-revocation-action-type": "prevent-new",
+								},
+								"generation": 0,
+								"labels": {
+									"run.googleapis.com/startupProbeType": "Default",
+								},
+								"name":             "",
+								"namespace":        "",
+								"resource_version": "",
+								"self_link":        "",
+								"uid":              "",
+							},
+						],
+						"spec": [
+							{
+								"container_concurrency": 80,
+								"containers": [
+									{
+										"args":           [],
+										"command":        [],
+										"env":            [],
+										"env_from":       [],
+										"image":          "us-docker.pkg.dev/cloudrun/container/hello",
+										"liveness_probe": [],
+										"name":           "",
+										"ports": [
+											{
+												"container_port": 8080,
+												"name":           "http1",
+												"protocol":       "",
+											},
+										],
+										"resources": [
+											{
+												"limits": {
+													"cpu":    "1000m",
+													"memory": "512Mi",
+												},
+												"requests": {},
+											},
+										],
+										"startup_probe": [
+											{
+												"failure_threshold":     1,
+												"grpc":                  [],
+												"http_get":              [],
+												"initial_delay_seconds": 0,
+												"period_seconds":        240,
+												"tcp_socket": [
+													{
+														"port": 8080,
+													},
+												],
+												"timeout_seconds": 240,
+											},
+										],
+										"volume_mounts": [],
+										"working_dir":   "",
+									},
+								],
+								"service_account_name": "1059522574692-compute@developer.gserviceaccount.com",
+								"serving_state":        "",
+								"timeout_seconds":      300,
+								"volumes":              [],
+							},
+						],
+					},
+				],
+				"timeouts": null,
+				"traffic": [
+					{
+						"latest_revision": true,
+						"percent":         100,
+						"revision_name":   "",
+						"tag":             "",
+						"url":             "",
+					},
+				],
+			},
+			"after_unknown": {},
+			"before": {
+				"autogenerate_revision_name": false,
+				"id":       "locations/us-central1/namespaces/hc-7d2b1bb11c4f43dea1787d05735/services/cloud-run-service-test",
+				"location": "us-central1",
+				"metadata": [
+					{
+						"annotations": {},
+						"effective_annotations": {
+							"run.googleapis.com/ingress":        "all",
+							"run.googleapis.com/ingress-status": "all",
+							"run.googleapis.com/operation-id":   "4c63d938-4152-4b3f-99b3-c312416b074b",
+							"run.googleapis.com/urls":           "[\"https://cloud-run-service-test-1059522574692.us-central1.run.app\",\"https://cloud-run-service-test-cuir2kwoua-uc.a.run.app\"]",
+							"serving.knative.dev/creator":       "terraform@hc-7d2b1bb11c4f43dea1787d05735.iam.gserviceaccount.com",
+							"serving.knative.dev/lastModifier":  "terraform@hc-7d2b1bb11c4f43dea1787d05735.iam.gserviceaccount.com",
+						},
+						"effective_labels": {
+							"cloud.googleapis.com/location": "us-central1",
+						},
+						"generation":       1,
+						"labels":           {},
+						"namespace":        "hc-7d2b1bb11c4f43dea1787d05735",
+						"resource_version": "AAYhT39eUWk",
+						"self_link":        "/apis/serving.knative.dev/v1/namespaces/1059522574692/services/cloud-run-service-test",
+						"terraform_labels": {},
+						"uid":              "bb376b66-7e1c-4e72-a2a8-23be62aa2ff6",
+					},
+				],
+				"name":    "cloud-run-service-test",
+				"project": "hc-7d2b1bb11c4f43dea1787d05735",
+				"status": [
+					{
+						"conditions": [
+							{
+								"message": "",
+								"reason":  "",
+								"status":  "True",
+								"type":    "Ready",
+							},
+							{
+								"message": "",
+								"reason":  "",
+								"status":  "True",
+								"type":    "ConfigurationsReady",
+							},
+							{
+								"message": "",
+								"reason":  "",
+								"status":  "True",
+								"type":    "RoutesReady",
+							},
+						],
+						"latest_created_revision_name": "cloud-run-service-test-00001-l6g",
+						"latest_ready_revision_name":   "cloud-run-service-test-00001-l6g",
+						"observed_generation":          1,
+						"traffic": [
+							{
+								"latest_revision": true,
+								"percent":         100,
+								"revision_name":   "cloud-run-service-test-00001-l6g",
+								"tag":             "",
+								"url":             "",
+							},
+						],
+						"url": "https://cloud-run-service-test-cuir2kwoua-uc.a.run.app",
+					},
+				],
+				"template": [
+					{
+						"metadata": [
+							{
+								"annotations": {
+									"autoscaling.knative.dev/maxScale":                   "100",
+									"run.googleapis.com/encryption-key":                  "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+									"run.googleapis.com/post-key-revocation-action-type": "prevent-new",
+								},
+								"generation": 0,
+								"labels": {
+									"run.googleapis.com/startupProbeType": "Default",
+								},
+								"name":             "",
+								"namespace":        "",
+								"resource_version": "",
+								"self_link":        "",
+								"uid":              "",
+							},
+						],
+						"spec": [
+							{
+								"container_concurrency": 80,
+								"containers": [
+									{
+										"args":           null,
+										"command":        null,
+										"env":            [],
+										"env_from":       [],
+										"image":          "us-docker.pkg.dev/cloudrun/container/hello",
+										"liveness_probe": [],
+										"name":           "",
+										"ports": [
+											{
+												"container_port": 8080,
+												"name":           "http1",
+												"protocol":       "",
+											},
+										],
+										"resources": [
+											{
+												"limits": {
+													"cpu":    "1000m",
+													"memory": "512Mi",
+												},
+												"requests": {},
+											},
+										],
+										"startup_probe": [
+											{
+												"failure_threshold":     1,
+												"grpc":                  [],
+												"http_get":              [],
+												"initial_delay_seconds": 0,
+												"period_seconds":        240,
+												"tcp_socket": [
+													{
+														"port": 8080,
+													},
+												],
+												"timeout_seconds": 240,
+											},
+										],
+										"volume_mounts": [],
+										"working_dir":   "",
+									},
+								],
+								"service_account_name": "1059522574692-compute@developer.gserviceaccount.com",
+								"serving_state":        "",
+								"timeout_seconds":      300,
+								"volumes":              [],
+							},
+						],
+					},
+				],
+				"timeouts": null,
+				"traffic": [
+					{
+						"latest_revision": true,
+						"percent":         100,
+						"revision_name":   "",
+						"tag":             "",
+						"url":             "",
+					},
+				],
+			},
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "test_cloud_run_service",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"type":           "google_cloud_run_service",
+	},
+	"google_kms_crypto_key_iam_member.crypto_key": {
+		"address": "google_kms_crypto_key_iam_member.crypto_key",
+		"change": {
+			"actions": [
+				"update",
+			],
+			"after": {
+				"condition":     [],
+				"crypto_key_id": "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+				"etag":          "BwYhT37bHGc=",
+				"id":            "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example/roles/cloudkms.cryptoKeyEncrypterDecrypter/serviceAccount:service-1059522574692@gcp-sa-artifactregistry.iam.gserviceaccount.com",
+				"member":        "serviceAccount:service-1059522574692@gcp-sa-artifactregistry.iam.gserviceaccount.com",
+				"role":          "roles/cloudkms.cryptoKeyEncrypterDecrypter",
+			},
+			"after_unknown": {},
+			"before": {
+				"condition":     [],
+				"crypto_key_id": "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+				"etag":          "BwYhTzMqDLk=",
+				"id":            "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example/roles/cloudkms.cryptoKeyEncrypterDecrypter/serviceAccount:service-1059522574692@gcp-sa-artifactregistry.iam.gserviceaccount.com",
+				"member":        "serviceAccount:service-1059522574692@gcp-sa-artifactregistry.iam.gserviceaccount.com",
+				"role":          "roles/cloudkms.cryptoKeyEncrypterDecrypter",
+			},
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "crypto_key",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"type":           "google_kms_crypto_key_iam_member",
+	},
+}
+
+output_changes = {}
+
+raw = {
+	"configuration": {
+		"provider_config": {
+			"google": {
+				"expressions": {
+					"project": {
+						"constant_value": "hc-7d2b1bb11c4f43dea1787d05735",
+					},
+					"region": {
+						"constant_value": "us-central1",
+					},
+				},
+				"full_name":          "registry.terraform.io/hashicorp/google",
+				"name":               "google",
+				"version_constraint": "6.0.1",
+			},
+		},
+		"root_module": {
+			"resources": [
+				{
+					"address": "google_artifact_registry_repository.test",
+					"depends_on": [
+						"google_kms_crypto_key_iam_member.crypto_key",
+					],
+					"expressions": {
+						"description": {
+							"constant_value": "example docker repository with cmek",
+						},
+						"format": {
+							"constant_value": "DOCKER",
+						},
+						"kms_key_name": {
+							"references": [
+								"google_kms_crypto_key.crypto_key.id",
+								"google_kms_crypto_key.crypto_key",
+							],
+						},
+						"repository_id": {
+							"constant_value": "my-repository",
+						},
+					},
+					"mode":                "managed",
+					"name":                "test",
+					"provider_config_key": "google",
+					"schema_version":      0,
+					"type":                "google_artifact_registry_repository",
+				},
+				{
+					"address": "google_cloud_run_service.test_cloud_run_service",
+					"depends_on": [
+						"google_kms_crypto_key_iam_member.crypto_key",
+					],
+					"expressions": {
+						"location": {
+							"constant_value": "us-central1",
+						},
+						"name": {
+							"constant_value": "cloud-run-service-test",
+						},
+						"template": [
+							{
+								"metadata": [
+									{
+										"annotations": {
+											"references": [
+												"google_kms_crypto_key.crypto_key.id",
+												"google_kms_crypto_key.crypto_key",
+											],
+										},
+									},
+								],
+								"spec": [
+									{
+										"containers": [
+											{
+												"image": {
+													"constant_value": "us-docker.pkg.dev/cloudrun/container/hello",
+												},
+											},
+										],
+									},
+								],
+							},
+						],
+					},
+					"mode":                "managed",
+					"name":                "test_cloud_run_service",
+					"provider_config_key": "google",
+					"schema_version":      2,
+					"type":                "google_cloud_run_service",
+				},
+				{
+					"address": "google_kms_crypto_key.crypto_key",
+					"expressions": {
+						"key_ring": {
+							"references": [
+								"google_kms_key_ring.key_ring.id",
+								"google_kms_key_ring.key_ring",
+							],
+						},
+						"name": {
+							"constant_value": "crypto-key-example",
+						},
+					},
+					"mode":                "managed",
+					"name":                "crypto_key",
+					"provider_config_key": "google",
+					"schema_version":      1,
+					"type":                "google_kms_crypto_key",
+				},
+				{
+					"address": "google_kms_crypto_key_iam_member.crypto_key",
+					"expressions": {
+						"crypto_key_id": {
+							"references": [
+								"google_kms_crypto_key.crypto_key.id",
+								"google_kms_crypto_key.crypto_key",
+							],
+						},
+						"member": {
+							"references": [
+								"data.google_project.project.number",
+								"data.google_project.project",
+							],
+						},
+						"role": {
+							"constant_value": "roles/cloudkms.cryptoKeyEncrypterDecrypter",
+						},
+					},
+					"mode":                "managed",
+					"name":                "crypto_key",
+					"provider_config_key": "google",
+					"schema_version":      0,
+					"type":                "google_kms_crypto_key_iam_member",
+				},
+				{
+					"address": "google_kms_crypto_key_iam_member.crypto_key2",
+					"expressions": {
+						"crypto_key_id": {
+							"references": [
+								"google_kms_crypto_key.crypto_key.id",
+								"google_kms_crypto_key.crypto_key",
+							],
+						},
+						"member": {
+							"references": [
+								"data.google_project.project.number",
+								"data.google_project.project",
+							],
+						},
+						"role": {
+							"constant_value": "roles/cloudkms.cryptoKeyEncrypterDecrypter",
+						},
+					},
+					"mode":                "managed",
+					"name":                "crypto_key2",
+					"provider_config_key": "google",
+					"schema_version":      0,
+					"type":                "google_kms_crypto_key_iam_member",
+				},
+				{
+					"address": "google_kms_key_ring.key_ring",
+					"expressions": {
+						"location": {
+							"constant_value": "us-central1",
+						},
+						"name": {
+							"constant_value": "keyring-example2",
+						},
+					},
+					"mode":                "managed",
+					"name":                "key_ring",
+					"provider_config_key": "google",
+					"schema_version":      0,
+					"type":                "google_kms_key_ring",
+				},
+				{
+					"address":             "data.google_project.project",
+					"mode":                "data",
+					"name":                "project",
+					"provider_config_key": "google",
+					"schema_version":      0,
+					"type":                "google_project",
+				},
+			],
+		},
+	},
+	"format_version": "1.2",
+	"planned_values": {
+		"root_module": {
+			"resources": [
+				{
+					"address":        "google_artifact_registry_repository.test",
+					"mode":           "managed",
+					"name":           "test",
+					"provider_name":  "registry.terraform.io/hashicorp/google",
+					"schema_version": 0,
+					"sensitive_values": {
+						"cleanup_policies":          [],
+						"docker_config":             [],
+						"effective_labels":          {},
+						"labels":                    {},
+						"maven_config":              [],
+						"remote_repository_config":  [],
+						"terraform_labels":          {},
+						"virtual_repository_config": [],
+					},
+					"type": "google_artifact_registry_repository",
+					"values": {
+						"cleanup_policies":       [],
+						"cleanup_policy_dry_run": false,
+						"create_time":            "2024-09-04T18:18:34.458206Z",
+						"description":            "example docker repository with cmek",
+						"docker_config":          [],
+						"effective_labels": {
+							"goog-terraform-provisioned": "true",
+						},
+						"format":                   "DOCKER",
+						"id":                       "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/repositories/my-repository",
+						"kms_key_name":             "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+						"labels":                   {},
+						"location":                 "us-central1",
+						"maven_config":             [],
+						"mode":                     "STANDARD_REPOSITORY",
+						"name":                     "my-repository",
+						"project":                  "hc-7d2b1bb11c4f43dea1787d05735",
+						"remote_repository_config": [],
+						"repository_id":            "my-repository",
+						"terraform_labels": {
+							"goog-terraform-provisioned": "true",
+						},
+						"timeouts":                  null,
+						"update_time":               "2024-09-04T18:18:34.458206Z",
+						"virtual_repository_config": [],
+					},
+				},
+				{
+					"address":        "google_cloud_run_service.test_cloud_run_service",
+					"mode":           "managed",
+					"name":           "test_cloud_run_service",
+					"provider_name":  "registry.terraform.io/hashicorp/google",
+					"schema_version": 2,
+					"sensitive_values": {
+						"metadata": [
+							{
+								"annotations":           {},
+								"effective_annotations": {},
+								"effective_labels":      {},
+								"labels":                {},
+								"terraform_labels":      {},
+							},
+						],
+						"status": [
+							{
+								"conditions": [
+									{},
+									{},
+									{},
+								],
+								"traffic": [
+									{},
+								],
+							},
+						],
+						"template": [
+							{
+								"metadata": [
+									{
+										"annotations": {},
+										"labels":      {},
+									},
+								],
+								"spec": [
+									{
+										"containers": [
+											{
+												"args":           [],
+												"command":        [],
+												"env":            [],
+												"env_from":       [],
+												"liveness_probe": [],
+												"ports": [
+													{},
+												],
+												"resources": [
+													{
+														"limits":   {},
+														"requests": {},
+													},
+												],
+												"startup_probe": [
+													{
+														"grpc":     [],
+														"http_get": [],
+														"tcp_socket": [
+															{},
+														],
+													},
+												],
+												"volume_mounts": [],
+											},
+										],
+										"volumes": [],
+									},
+								],
+							},
+						],
+						"traffic": [
+							{},
+						],
+					},
+					"type": "google_cloud_run_service",
+					"values": {
+						"autogenerate_revision_name": false,
+						"id":       "locations/us-central1/namespaces/hc-7d2b1bb11c4f43dea1787d05735/services/cloud-run-service-test",
+						"location": "us-central1",
+						"metadata": [
+							{
+								"annotations": {},
+								"effective_annotations": {
+									"run.googleapis.com/ingress":        "all",
+									"run.googleapis.com/ingress-status": "all",
+									"run.googleapis.com/operation-id":   "4c63d938-4152-4b3f-99b3-c312416b074b",
+									"run.googleapis.com/urls":           "[\"https://cloud-run-service-test-1059522574692.us-central1.run.app\",\"https://cloud-run-service-test-cuir2kwoua-uc.a.run.app\"]",
+									"serving.knative.dev/creator":       "terraform@hc-7d2b1bb11c4f43dea1787d05735.iam.gserviceaccount.com",
+									"serving.knative.dev/lastModifier":  "terraform@hc-7d2b1bb11c4f43dea1787d05735.iam.gserviceaccount.com",
+								},
+								"effective_labels": {
+									"cloud.googleapis.com/location": "us-central1",
+								},
+								"generation":       1,
+								"labels":           {},
+								"namespace":        "hc-7d2b1bb11c4f43dea1787d05735",
+								"resource_version": "AAYhT39eUWk",
+								"self_link":        "/apis/serving.knative.dev/v1/namespaces/1059522574692/services/cloud-run-service-test",
+								"terraform_labels": {},
+								"uid":              "bb376b66-7e1c-4e72-a2a8-23be62aa2ff6",
+							},
+						],
+						"name":    "cloud-run-service-test",
+						"project": "hc-7d2b1bb11c4f43dea1787d05735",
+						"status": [
+							{
+								"conditions": [
+									{
+										"message": "",
+										"reason":  "",
+										"status":  "True",
+										"type":    "Ready",
+									},
+									{
+										"message": "",
+										"reason":  "",
+										"status":  "True",
+										"type":    "ConfigurationsReady",
+									},
+									{
+										"message": "",
+										"reason":  "",
+										"status":  "True",
+										"type":    "RoutesReady",
+									},
+								],
+								"latest_created_revision_name": "cloud-run-service-test-00001-l6g",
+								"latest_ready_revision_name":   "cloud-run-service-test-00001-l6g",
+								"observed_generation":          1,
+								"traffic": [
+									{
+										"latest_revision": true,
+										"percent":         100,
+										"revision_name":   "cloud-run-service-test-00001-l6g",
+										"tag":             "",
+										"url":             "",
+									},
+								],
+								"url": "https://cloud-run-service-test-cuir2kwoua-uc.a.run.app",
+							},
+						],
+						"template": [
+							{
+								"metadata": [
+									{
+										"annotations": {
+											"autoscaling.knative.dev/maxScale":  "100",
+											"run.googleapis.com/encryption-key": "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+										},
+										"generation": 0,
+										"labels": {
+											"run.googleapis.com/startupProbeType": "Default",
+										},
+										"name":             "",
+										"namespace":        "",
+										"resource_version": "",
+										"self_link":        "",
+										"uid":              "",
+									},
+								],
+								"spec": [
+									{
+										"container_concurrency": 80,
+										"containers": [
+											{
+												"args":           [],
+												"command":        [],
+												"env":            [],
+												"env_from":       [],
+												"image":          "us-docker.pkg.dev/cloudrun/container/hello",
+												"liveness_probe": [],
+												"name":           "",
+												"ports": [
+													{
+														"container_port": 8080,
+														"name":           "http1",
+														"protocol":       "",
+													},
+												],
+												"resources": [
+													{
+														"limits": {
+															"cpu":    "1000m",
+															"memory": "512Mi",
+														},
+														"requests": {},
+													},
+												],
+												"startup_probe": [
+													{
+														"failure_threshold":     1,
+														"grpc":                  [],
+														"http_get":              [],
+														"initial_delay_seconds": 0,
+														"period_seconds":        240,
+														"tcp_socket": [
+															{
+																"port": 8080,
+															},
+														],
+														"timeout_seconds": 240,
+													},
+												],
+												"volume_mounts": [],
+												"working_dir":   "",
+											},
+										],
+										"service_account_name": "1059522574692-compute@developer.gserviceaccount.com",
+										"serving_state":        "",
+										"timeout_seconds":      300,
+										"volumes":              [],
+									},
+								],
+							},
+						],
+						"timeouts": null,
+						"traffic": [
+							{
+								"latest_revision": true,
+								"percent":         100,
+								"revision_name":   "",
+								"tag":             "",
+								"url":             "",
+							},
+						],
+					},
+				},
+				{
+					"address":        "google_kms_crypto_key.crypto_key",
+					"mode":           "managed",
+					"name":           "crypto_key",
+					"provider_name":  "registry.terraform.io/hashicorp/google",
+					"schema_version": 1,
+					"sensitive_values": {
+						"effective_labels": {},
+						"labels":           {},
+						"primary": [
+							{},
+						],
+						"terraform_labels": {},
+						"version_template": [
+							{},
+						],
+					},
+					"type": "google_kms_crypto_key",
+					"values": {
+						"crypto_key_backend":         "",
+						"destroy_scheduled_duration": "2592000s",
+						"effective_labels": {
+							"goog-terraform-provisioned": "true",
+						},
+						"id":          "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+						"import_only": false,
+						"key_ring":    "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2",
+						"labels":      {},
+						"name":        "crypto-key-example",
+						"primary": [
+							{
+								"name":  "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example/cryptoKeyVersions/1",
+								"state": "ENABLED",
+							},
+						],
+						"purpose":                       "ENCRYPT_DECRYPT",
+						"rotation_period":               "",
+						"skip_initial_version_creation": false,
+						"terraform_labels": {
+							"goog-terraform-provisioned": "true",
+						},
+						"timeouts": null,
+						"version_template": [
+							{
+								"algorithm":        "GOOGLE_SYMMETRIC_ENCRYPTION",
+								"protection_level": "SOFTWARE",
+							},
+						],
+					},
+				},
+				{
+					"address":        "google_kms_crypto_key_iam_member.crypto_key",
+					"mode":           "managed",
+					"name":           "crypto_key",
+					"provider_name":  "registry.terraform.io/hashicorp/google",
+					"schema_version": 0,
+					"sensitive_values": {
+						"condition": [],
+					},
+					"type": "google_kms_crypto_key_iam_member",
+					"values": {
+						"condition":     [],
+						"crypto_key_id": "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+						"etag":          "BwYhT37bHGc=",
+						"id":            "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example/roles/cloudkms.cryptoKeyEncrypterDecrypter/serviceAccount:service-1059522574692@gcp-sa-artifactregistry.iam.gserviceaccount.com",
+						"member":        "serviceAccount:service-1059522574692@gcp-sa-artifactregistry.iam.gserviceaccount.com",
+						"role":          "roles/cloudkms.cryptoKeyEncrypterDecrypter",
+					},
+				},
+				{
+					"address":        "google_kms_crypto_key_iam_member.crypto_key2",
+					"mode":           "managed",
+					"name":           "crypto_key2",
+					"provider_name":  "registry.terraform.io/hashicorp/google",
+					"schema_version": 0,
+					"sensitive_values": {
+						"condition": [],
+					},
+					"type": "google_kms_crypto_key_iam_member",
+					"values": {
+						"condition":     [],
+						"crypto_key_id": "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+						"etag":          "BwYhT37bHGc=",
+						"id":            "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example/roles/cloudkms.cryptoKeyEncrypterDecrypter/serviceAccount:service-1059522574692@serverless-robot-prod.iam.gserviceaccount.com",
+						"member":        "serviceAccount:service-1059522574692@serverless-robot-prod.iam.gserviceaccount.com",
+						"role":          "roles/cloudkms.cryptoKeyEncrypterDecrypter",
+					},
+				},
+				{
+					"address":          "google_kms_key_ring.key_ring",
+					"mode":             "managed",
+					"name":             "key_ring",
+					"provider_name":    "registry.terraform.io/hashicorp/google",
+					"schema_version":   0,
+					"sensitive_values": {},
+					"type":             "google_kms_key_ring",
+					"values": {
+						"id":       "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2",
+						"location": "us-central1",
+						"name":     "keyring-example2",
+						"project":  "hc-7d2b1bb11c4f43dea1787d05735",
+						"timeouts": null,
+					},
+				},
+			],
+		},
+	},
+	"prior_state": {
+		"format_version":    "1.0",
+		"terraform_version": "1.9.5",
+		"values": {
+			"root_module": {
+				"resources": [
+					{
+						"address":        "data.google_project.project",
+						"mode":           "data",
+						"name":           "project",
+						"provider_name":  "registry.terraform.io/hashicorp/google",
+						"schema_version": 0,
+						"sensitive_values": {
+							"effective_labels": {},
+							"labels":           {},
+							"terraform_labels": {},
+						},
+						"type": "google_project",
+						"values": {
+							"auto_create_network": null,
+							"billing_account":     null,
+							"deletion_policy":     "PREVENT",
+							"effective_labels": {
+								"environment": "test",
+							},
+							"folder_id": "255483794500",
+							"id":        "projects/hc-7d2b1bb11c4f43dea1787d05735",
+							"labels": {
+								"environment": "test",
+							},
+							"name":       "jdefrank2-test",
+							"number":     "1059522574692",
+							"org_id":     "",
+							"project_id": "hc-7d2b1bb11c4f43dea1787d05735",
+							"terraform_labels": {
+								"environment": "test",
+							},
+						},
+					},
+					{
+						"address": "google_artifact_registry_repository.test",
+						"depends_on": [
+							"data.google_project.project",
+							"google_kms_crypto_key.crypto_key",
+							"google_kms_crypto_key_iam_member.crypto_key",
+							"google_kms_key_ring.key_ring",
+						],
+						"mode":           "managed",
+						"name":           "test",
+						"provider_name":  "registry.terraform.io/hashicorp/google",
+						"schema_version": 0,
+						"sensitive_values": {
+							"cleanup_policies":          [],
+							"docker_config":             [],
+							"effective_labels":          {},
+							"labels":                    {},
+							"maven_config":              [],
+							"remote_repository_config":  [],
+							"terraform_labels":          {},
+							"virtual_repository_config": [],
+						},
+						"type": "google_artifact_registry_repository",
+						"values": {
+							"cleanup_policies":       [],
+							"cleanup_policy_dry_run": false,
+							"create_time":            "2024-09-04T18:18:34.458206Z",
+							"description":            "example docker repository with cmek",
+							"docker_config":          [],
+							"effective_labels": {
+								"goog-terraform-provisioned": "true",
+							},
+							"format":                   "DOCKER",
+							"id":                       "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/repositories/my-repository",
+							"kms_key_name":             "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+							"labels":                   {},
+							"location":                 "us-central1",
+							"maven_config":             [],
+							"mode":                     "STANDARD_REPOSITORY",
+							"name":                     "my-repository",
+							"project":                  "hc-7d2b1bb11c4f43dea1787d05735",
+							"remote_repository_config": [],
+							"repository_id":            "my-repository",
+							"terraform_labels": {
+								"goog-terraform-provisioned": "true",
+							},
+							"timeouts":                  null,
+							"update_time":               "2024-09-04T18:18:34.458206Z",
+							"virtual_repository_config": [],
+						},
+					},
+					{
+						"address": "google_cloud_run_service.test_cloud_run_service",
+						"depends_on": [
+							"data.google_project.project",
+							"google_kms_crypto_key.crypto_key",
+							"google_kms_crypto_key_iam_member.crypto_key",
+							"google_kms_key_ring.key_ring",
+						],
+						"mode":           "managed",
+						"name":           "test_cloud_run_service",
+						"provider_name":  "registry.terraform.io/hashicorp/google",
+						"schema_version": 2,
+						"sensitive_values": {
+							"metadata": [
+								{
+									"annotations":           {},
+									"effective_annotations": {},
+									"effective_labels":      {},
+									"labels":                {},
+									"terraform_labels":      {},
+								},
+							],
+							"status": [
+								{
+									"conditions": [
+										{},
+										{},
+										{},
+									],
+									"traffic": [
+										{},
+									],
+								},
+							],
+							"template": [
+								{
+									"metadata": [
+										{
+											"annotations": {},
+											"labels":      {},
+										},
+									],
+									"spec": [
+										{
+											"containers": [
+												{
+													"args":           [],
+													"command":        [],
+													"env":            [],
+													"env_from":       [],
+													"liveness_probe": [],
+													"ports": [
+														{},
+													],
+													"resources": [
+														{
+															"limits":   {},
+															"requests": {},
+														},
+													],
+													"startup_probe": [
+														{
+															"grpc":     [],
+															"http_get": [],
+															"tcp_socket": [
+																{},
+															],
+														},
+													],
+													"volume_mounts": [],
+												},
+											],
+											"volumes": [],
+										},
+									],
+								},
+							],
+							"traffic": [
+								{},
+							],
+						},
+						"type": "google_cloud_run_service",
+						"values": {
+							"autogenerate_revision_name": false,
+							"id":       "locations/us-central1/namespaces/hc-7d2b1bb11c4f43dea1787d05735/services/cloud-run-service-test",
+							"location": "us-central1",
+							"metadata": [
+								{
+									"annotations": {},
+									"effective_annotations": {
+										"run.googleapis.com/ingress":        "all",
+										"run.googleapis.com/ingress-status": "all",
+										"run.googleapis.com/operation-id":   "4c63d938-4152-4b3f-99b3-c312416b074b",
+										"run.googleapis.com/urls":           "[\"https://cloud-run-service-test-1059522574692.us-central1.run.app\",\"https://cloud-run-service-test-cuir2kwoua-uc.a.run.app\"]",
+										"serving.knative.dev/creator":       "terraform@hc-7d2b1bb11c4f43dea1787d05735.iam.gserviceaccount.com",
+										"serving.knative.dev/lastModifier":  "terraform@hc-7d2b1bb11c4f43dea1787d05735.iam.gserviceaccount.com",
+									},
+									"effective_labels": {
+										"cloud.googleapis.com/location": "us-central1",
+									},
+									"generation":       1,
+									"labels":           {},
+									"namespace":        "hc-7d2b1bb11c4f43dea1787d05735",
+									"resource_version": "AAYhT39eUWk",
+									"self_link":        "/apis/serving.knative.dev/v1/namespaces/1059522574692/services/cloud-run-service-test",
+									"terraform_labels": {},
+									"uid":              "bb376b66-7e1c-4e72-a2a8-23be62aa2ff6",
+								},
+							],
+							"name":    "cloud-run-service-test",
+							"project": "hc-7d2b1bb11c4f43dea1787d05735",
+							"status": [
+								{
+									"conditions": [
+										{
+											"message": "",
+											"reason":  "",
+											"status":  "True",
+											"type":    "Ready",
+										},
+										{
+											"message": "",
+											"reason":  "",
+											"status":  "True",
+											"type":    "ConfigurationsReady",
+										},
+										{
+											"message": "",
+											"reason":  "",
+											"status":  "True",
+											"type":    "RoutesReady",
+										},
+									],
+									"latest_created_revision_name": "cloud-run-service-test-00001-l6g",
+									"latest_ready_revision_name":   "cloud-run-service-test-00001-l6g",
+									"observed_generation":          1,
+									"traffic": [
+										{
+											"latest_revision": true,
+											"percent":         100,
+											"revision_name":   "cloud-run-service-test-00001-l6g",
+											"tag":             "",
+											"url":             "",
+										},
+									],
+									"url": "https://cloud-run-service-test-cuir2kwoua-uc.a.run.app",
+								},
+							],
+							"template": [
+								{
+									"metadata": [
+										{
+											"annotations": {
+												"autoscaling.knative.dev/maxScale":                   "100",
+												"run.googleapis.com/encryption-key":                  "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+												"run.googleapis.com/post-key-revocation-action-type": "prevent-new",
+											},
+											"generation": 0,
+											"labels": {
+												"run.googleapis.com/startupProbeType": "Default",
+											},
+											"name":             "",
+											"namespace":        "",
+											"resource_version": "",
+											"self_link":        "",
+											"uid":              "",
+										},
+									],
+									"spec": [
+										{
+											"container_concurrency": 80,
+											"containers": [
+												{
+													"args":           [],
+													"command":        [],
+													"env":            [],
+													"env_from":       [],
+													"image":          "us-docker.pkg.dev/cloudrun/container/hello",
+													"liveness_probe": [],
+													"name":           "",
+													"ports": [
+														{
+															"container_port": 8080,
+															"name":           "http1",
+															"protocol":       "",
+														},
+													],
+													"resources": [
+														{
+															"limits": {
+																"cpu":    "1000m",
+																"memory": "512Mi",
+															},
+															"requests": {},
+														},
+													],
+													"startup_probe": [
+														{
+															"failure_threshold":     1,
+															"grpc":                  [],
+															"http_get":              [],
+															"initial_delay_seconds": 0,
+															"period_seconds":        240,
+															"tcp_socket": [
+																{
+																	"port": 8080,
+																},
+															],
+															"timeout_seconds": 240,
+														},
+													],
+													"volume_mounts": [],
+													"working_dir":   "",
+												},
+											],
+											"service_account_name": "1059522574692-compute@developer.gserviceaccount.com",
+											"serving_state":        "",
+											"timeout_seconds":      300,
+											"volumes":              [],
+										},
+									],
+								},
+							],
+							"timeouts": null,
+							"traffic": [
+								{
+									"latest_revision": true,
+									"percent":         100,
+									"revision_name":   "",
+									"tag":             "",
+									"url":             "",
+								},
+							],
+						},
+					},
+					{
+						"address": "google_kms_crypto_key.crypto_key",
+						"depends_on": [
+							"google_kms_key_ring.key_ring",
+						],
+						"mode":           "managed",
+						"name":           "crypto_key",
+						"provider_name":  "registry.terraform.io/hashicorp/google",
+						"schema_version": 1,
+						"sensitive_values": {
+							"effective_labels": {},
+							"labels":           {},
+							"primary": [
+								{},
+							],
+							"terraform_labels": {},
+							"version_template": [
+								{},
+							],
+						},
+						"type": "google_kms_crypto_key",
+						"values": {
+							"crypto_key_backend":         "",
+							"destroy_scheduled_duration": "2592000s",
+							"effective_labels": {
+								"goog-terraform-provisioned": "true",
+							},
+							"id":          "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+							"import_only": false,
+							"key_ring":    "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2",
+							"labels":      {},
+							"name":        "crypto-key-example",
+							"primary": [
+								{
+									"name":  "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example/cryptoKeyVersions/1",
+									"state": "ENABLED",
+								},
+							],
+							"purpose":                       "ENCRYPT_DECRYPT",
+							"rotation_period":               "",
+							"skip_initial_version_creation": false,
+							"terraform_labels": {
+								"goog-terraform-provisioned": "true",
+							},
+							"timeouts": null,
+							"version_template": [
+								{
+									"algorithm":        "GOOGLE_SYMMETRIC_ENCRYPTION",
+									"protection_level": "SOFTWARE",
+								},
+							],
+						},
+					},
+					{
+						"address": "google_kms_crypto_key_iam_member.crypto_key",
+						"depends_on": [
+							"data.google_project.project",
+							"google_kms_crypto_key.crypto_key",
+							"google_kms_key_ring.key_ring",
+						],
+						"mode":           "managed",
+						"name":           "crypto_key",
+						"provider_name":  "registry.terraform.io/hashicorp/google",
+						"schema_version": 0,
+						"sensitive_values": {
+							"condition": [],
+						},
+						"type": "google_kms_crypto_key_iam_member",
+						"values": {
+							"condition":     [],
+							"crypto_key_id": "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+							"etag":          "BwYhT37bHGc=",
+							"id":            "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example/roles/cloudkms.cryptoKeyEncrypterDecrypter/serviceAccount:service-1059522574692@gcp-sa-artifactregistry.iam.gserviceaccount.com",
+							"member":        "serviceAccount:service-1059522574692@gcp-sa-artifactregistry.iam.gserviceaccount.com",
+							"role":          "roles/cloudkms.cryptoKeyEncrypterDecrypter",
+						},
+					},
+					{
+						"address": "google_kms_crypto_key_iam_member.crypto_key2",
+						"depends_on": [
+							"data.google_project.project",
+							"google_kms_crypto_key.crypto_key",
+							"google_kms_key_ring.key_ring",
+						],
+						"mode":           "managed",
+						"name":           "crypto_key2",
+						"provider_name":  "registry.terraform.io/hashicorp/google",
+						"schema_version": 0,
+						"sensitive_values": {
+							"condition": [],
+						},
+						"type": "google_kms_crypto_key_iam_member",
+						"values": {
+							"condition":     [],
+							"crypto_key_id": "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+							"etag":          "BwYhT37bHGc=",
+							"id":            "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example/roles/cloudkms.cryptoKeyEncrypterDecrypter/serviceAccount:service-1059522574692@serverless-robot-prod.iam.gserviceaccount.com",
+							"member":        "serviceAccount:service-1059522574692@serverless-robot-prod.iam.gserviceaccount.com",
+							"role":          "roles/cloudkms.cryptoKeyEncrypterDecrypter",
+						},
+					},
+					{
+						"address":          "google_kms_key_ring.key_ring",
+						"mode":             "managed",
+						"name":             "key_ring",
+						"provider_name":    "registry.terraform.io/hashicorp/google",
+						"schema_version":   0,
+						"sensitive_values": {},
+						"type":             "google_kms_key_ring",
+						"values": {
+							"id":       "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2",
+							"location": "us-central1",
+							"name":     "keyring-example2",
+							"project":  "hc-7d2b1bb11c4f43dea1787d05735",
+							"timeouts": null,
+						},
+					},
+				],
+			},
+		},
+	},
+	"relevant_attributes": [
+		{
+			"attribute": [
+				"id",
+			],
+			"resource": "google_kms_crypto_key.crypto_key",
+		},
+	],
+	"resource_changes": [
+		{
+			"address": "google_artifact_registry_repository.test",
+			"change": {
+				"actions": [
+					"no-op",
+				],
+				"after": {
+					"cleanup_policies":       [],
+					"cleanup_policy_dry_run": false,
+					"create_time":            "2024-09-04T18:18:34.458206Z",
+					"description":            "example docker repository with cmek",
+					"docker_config":          [],
+					"effective_labels": {
+						"goog-terraform-provisioned": "true",
+					},
+					"format":                   "DOCKER",
+					"id":                       "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/repositories/my-repository",
+					"kms_key_name":             "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+					"labels":                   {},
+					"location":                 "us-central1",
+					"maven_config":             [],
+					"mode":                     "STANDARD_REPOSITORY",
+					"name":                     "my-repository",
+					"project":                  "hc-7d2b1bb11c4f43dea1787d05735",
+					"remote_repository_config": [],
+					"repository_id":            "my-repository",
+					"terraform_labels": {
+						"goog-terraform-provisioned": "true",
+					},
+					"timeouts":                  null,
+					"update_time":               "2024-09-04T18:18:34.458206Z",
+					"virtual_repository_config": [],
+				},
+				"after_sensitive": {
+					"cleanup_policies":          [],
+					"docker_config":             [],
+					"effective_labels":          {},
+					"labels":                    {},
+					"maven_config":              [],
+					"remote_repository_config":  [],
+					"terraform_labels":          {},
+					"virtual_repository_config": [],
+				},
+				"after_unknown": {},
+				"before": {
+					"cleanup_policies":       [],
+					"cleanup_policy_dry_run": false,
+					"create_time":            "2024-09-04T18:18:34.458206Z",
+					"description":            "example docker repository with cmek",
+					"docker_config":          [],
+					"effective_labels": {
+						"goog-terraform-provisioned": "true",
+					},
+					"format":                   "DOCKER",
+					"id":                       "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/repositories/my-repository",
+					"kms_key_name":             "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+					"labels":                   {},
+					"location":                 "us-central1",
+					"maven_config":             [],
+					"mode":                     "STANDARD_REPOSITORY",
+					"name":                     "my-repository",
+					"project":                  "hc-7d2b1bb11c4f43dea1787d05735",
+					"remote_repository_config": [],
+					"repository_id":            "my-repository",
+					"terraform_labels": {
+						"goog-terraform-provisioned": "true",
+					},
+					"timeouts":                  null,
+					"update_time":               "2024-09-04T18:18:34.458206Z",
+					"virtual_repository_config": [],
+				},
+				"before_sensitive": {
+					"cleanup_policies":          [],
+					"docker_config":             [],
+					"effective_labels":          {},
+					"labels":                    {},
+					"maven_config":              [],
+					"remote_repository_config":  [],
+					"terraform_labels":          {},
+					"virtual_repository_config": [],
+				},
+			},
+			"mode":          "managed",
+			"name":          "test",
+			"provider_name": "registry.terraform.io/hashicorp/google",
+			"type":          "google_artifact_registry_repository",
+		},
+		{
+			"address": "google_cloud_run_service.test_cloud_run_service",
+			"change": {
+				"actions": [
+					"update",
+				],
+				"after": {
+					"autogenerate_revision_name": false,
+					"id":       "locations/us-central1/namespaces/hc-7d2b1bb11c4f43dea1787d05735/services/cloud-run-service-test",
+					"location": "us-central1",
+					"metadata": [
+						{
+							"annotations": {},
+							"effective_annotations": {
+								"run.googleapis.com/ingress":        "all",
+								"run.googleapis.com/ingress-status": "all",
+								"run.googleapis.com/operation-id":   "4c63d938-4152-4b3f-99b3-c312416b074b",
+								"run.googleapis.com/urls":           "[\"https://cloud-run-service-test-1059522574692.us-central1.run.app\",\"https://cloud-run-service-test-cuir2kwoua-uc.a.run.app\"]",
+								"serving.knative.dev/creator":       "terraform@hc-7d2b1bb11c4f43dea1787d05735.iam.gserviceaccount.com",
+								"serving.knative.dev/lastModifier":  "terraform@hc-7d2b1bb11c4f43dea1787d05735.iam.gserviceaccount.com",
+							},
+							"effective_labels": {
+								"cloud.googleapis.com/location": "us-central1",
+							},
+							"generation":       1,
+							"labels":           {},
+							"namespace":        "hc-7d2b1bb11c4f43dea1787d05735",
+							"resource_version": "AAYhT39eUWk",
+							"self_link":        "/apis/serving.knative.dev/v1/namespaces/1059522574692/services/cloud-run-service-test",
+							"terraform_labels": {},
+							"uid":              "bb376b66-7e1c-4e72-a2a8-23be62aa2ff6",
+						},
+					],
+					"name":    "cloud-run-service-test",
+					"project": "hc-7d2b1bb11c4f43dea1787d05735",
+					"status": [
+						{
+							"conditions": [
+								{
+									"message": "",
+									"reason":  "",
+									"status":  "True",
+									"type":    "Ready",
+								},
+								{
+									"message": "",
+									"reason":  "",
+									"status":  "True",
+									"type":    "ConfigurationsReady",
+								},
+								{
+									"message": "",
+									"reason":  "",
+									"status":  "True",
+									"type":    "RoutesReady",
+								},
+							],
+							"latest_created_revision_name": "cloud-run-service-test-00001-l6g",
+							"latest_ready_revision_name":   "cloud-run-service-test-00001-l6g",
+							"observed_generation":          1,
+							"traffic": [
+								{
+									"latest_revision": true,
+									"percent":         100,
+									"revision_name":   "cloud-run-service-test-00001-l6g",
+									"tag":             "",
+									"url":             "",
+								},
+							],
+							"url": "https://cloud-run-service-test-cuir2kwoua-uc.a.run.app",
+						},
+					],
+					"template": [
+						{
+							"metadata": [
+								{
+									"annotations": {
+										"autoscaling.knative.dev/maxScale":  "100",
+										"run.googleapis.com/encryption-key": "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+									},
+									"generation": 0,
+									"labels": {
+										"run.googleapis.com/startupProbeType": "Default",
+									},
+									"name":             "",
+									"namespace":        "",
+									"resource_version": "",
+									"self_link":        "",
+									"uid":              "",
+								},
+							],
+							"spec": [
+								{
+									"container_concurrency": 80,
+									"containers": [
+										{
+											"args":           [],
+											"command":        [],
+											"env":            [],
+											"env_from":       [],
+											"image":          "us-docker.pkg.dev/cloudrun/container/hello",
+											"liveness_probe": [],
+											"name":           "",
+											"ports": [
+												{
+													"container_port": 8080,
+													"name":           "http1",
+													"protocol":       "",
+												},
+											],
+											"resources": [
+												{
+													"limits": {
+														"cpu":    "1000m",
+														"memory": "512Mi",
+													},
+													"requests": {},
+												},
+											],
+											"startup_probe": [
+												{
+													"failure_threshold":     1,
+													"grpc":                  [],
+													"http_get":              [],
+													"initial_delay_seconds": 0,
+													"period_seconds":        240,
+													"tcp_socket": [
+														{
+															"port": 8080,
+														},
+													],
+													"timeout_seconds": 240,
+												},
+											],
+											"volume_mounts": [],
+											"working_dir":   "",
+										},
+									],
+									"service_account_name": "1059522574692-compute@developer.gserviceaccount.com",
+									"serving_state":        "",
+									"timeout_seconds":      300,
+									"volumes":              [],
+								},
+							],
+						},
+					],
+					"timeouts": null,
+					"traffic": [
+						{
+							"latest_revision": true,
+							"percent":         100,
+							"revision_name":   "",
+							"tag":             "",
+							"url":             "",
+						},
+					],
+				},
+				"after_sensitive": {
+					"metadata": [
+						{
+							"annotations":           {},
+							"effective_annotations": {},
+							"effective_labels":      {},
+							"labels":                {},
+							"terraform_labels":      {},
+						},
+					],
+					"status": [
+						{
+							"conditions": [
+								{},
+								{},
+								{},
+							],
+							"traffic": [
+								{},
+							],
+						},
+					],
+					"template": [
+						{
+							"metadata": [
+								{
+									"annotations": {},
+									"labels":      {},
+								},
+							],
+							"spec": [
+								{
+									"containers": [
+										{
+											"args":           [],
+											"command":        [],
+											"env":            [],
+											"env_from":       [],
+											"liveness_probe": [],
+											"ports": [
+												{},
+											],
+											"resources": [
+												{
+													"limits":   {},
+													"requests": {},
+												},
+											],
+											"startup_probe": [
+												{
+													"grpc":     [],
+													"http_get": [],
+													"tcp_socket": [
+														{},
+													],
+												},
+											],
+											"volume_mounts": [],
+										},
+									],
+									"volumes": [],
+								},
+							],
+						},
+					],
+					"traffic": [
+						{},
+					],
+				},
+				"after_unknown": {},
+				"before": {
+					"autogenerate_revision_name": false,
+					"id":       "locations/us-central1/namespaces/hc-7d2b1bb11c4f43dea1787d05735/services/cloud-run-service-test",
+					"location": "us-central1",
+					"metadata": [
+						{
+							"annotations": {},
+							"effective_annotations": {
+								"run.googleapis.com/ingress":        "all",
+								"run.googleapis.com/ingress-status": "all",
+								"run.googleapis.com/operation-id":   "4c63d938-4152-4b3f-99b3-c312416b074b",
+								"run.googleapis.com/urls":           "[\"https://cloud-run-service-test-1059522574692.us-central1.run.app\",\"https://cloud-run-service-test-cuir2kwoua-uc.a.run.app\"]",
+								"serving.knative.dev/creator":       "terraform@hc-7d2b1bb11c4f43dea1787d05735.iam.gserviceaccount.com",
+								"serving.knative.dev/lastModifier":  "terraform@hc-7d2b1bb11c4f43dea1787d05735.iam.gserviceaccount.com",
+							},
+							"effective_labels": {
+								"cloud.googleapis.com/location": "us-central1",
+							},
+							"generation":       1,
+							"labels":           {},
+							"namespace":        "hc-7d2b1bb11c4f43dea1787d05735",
+							"resource_version": "AAYhT39eUWk",
+							"self_link":        "/apis/serving.knative.dev/v1/namespaces/1059522574692/services/cloud-run-service-test",
+							"terraform_labels": {},
+							"uid":              "bb376b66-7e1c-4e72-a2a8-23be62aa2ff6",
+						},
+					],
+					"name":    "cloud-run-service-test",
+					"project": "hc-7d2b1bb11c4f43dea1787d05735",
+					"status": [
+						{
+							"conditions": [
+								{
+									"message": "",
+									"reason":  "",
+									"status":  "True",
+									"type":    "Ready",
+								},
+								{
+									"message": "",
+									"reason":  "",
+									"status":  "True",
+									"type":    "ConfigurationsReady",
+								},
+								{
+									"message": "",
+									"reason":  "",
+									"status":  "True",
+									"type":    "RoutesReady",
+								},
+							],
+							"latest_created_revision_name": "cloud-run-service-test-00001-l6g",
+							"latest_ready_revision_name":   "cloud-run-service-test-00001-l6g",
+							"observed_generation":          1,
+							"traffic": [
+								{
+									"latest_revision": true,
+									"percent":         100,
+									"revision_name":   "cloud-run-service-test-00001-l6g",
+									"tag":             "",
+									"url":             "",
+								},
+							],
+							"url": "https://cloud-run-service-test-cuir2kwoua-uc.a.run.app",
+						},
+					],
+					"template": [
+						{
+							"metadata": [
+								{
+									"annotations": {
+										"autoscaling.knative.dev/maxScale":                   "100",
+										"run.googleapis.com/encryption-key":                  "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+										"run.googleapis.com/post-key-revocation-action-type": "prevent-new",
+									},
+									"generation": 0,
+									"labels": {
+										"run.googleapis.com/startupProbeType": "Default",
+									},
+									"name":             "",
+									"namespace":        "",
+									"resource_version": "",
+									"self_link":        "",
+									"uid":              "",
+								},
+							],
+							"spec": [
+								{
+									"container_concurrency": 80,
+									"containers": [
+										{
+											"args":           [],
+											"command":        [],
+											"env":            [],
+											"env_from":       [],
+											"image":          "us-docker.pkg.dev/cloudrun/container/hello",
+											"liveness_probe": [],
+											"name":           "",
+											"ports": [
+												{
+													"container_port": 8080,
+													"name":           "http1",
+													"protocol":       "",
+												},
+											],
+											"resources": [
+												{
+													"limits": {
+														"cpu":    "1000m",
+														"memory": "512Mi",
+													},
+													"requests": {},
+												},
+											],
+											"startup_probe": [
+												{
+													"failure_threshold":     1,
+													"grpc":                  [],
+													"http_get":              [],
+													"initial_delay_seconds": 0,
+													"period_seconds":        240,
+													"tcp_socket": [
+														{
+															"port": 8080,
+														},
+													],
+													"timeout_seconds": 240,
+												},
+											],
+											"volume_mounts": [],
+											"working_dir":   "",
+										},
+									],
+									"service_account_name": "1059522574692-compute@developer.gserviceaccount.com",
+									"serving_state":        "",
+									"timeout_seconds":      300,
+									"volumes":              [],
+								},
+							],
+						},
+					],
+					"timeouts": null,
+					"traffic": [
+						{
+							"latest_revision": true,
+							"percent":         100,
+							"revision_name":   "",
+							"tag":             "",
+							"url":             "",
+						},
+					],
+				},
+				"before_sensitive": {
+					"metadata": [
+						{
+							"annotations":           {},
+							"effective_annotations": {},
+							"effective_labels":      {},
+							"labels":                {},
+							"terraform_labels":      {},
+						},
+					],
+					"status": [
+						{
+							"conditions": [
+								{},
+								{},
+								{},
+							],
+							"traffic": [
+								{},
+							],
+						},
+					],
+					"template": [
+						{
+							"metadata": [
+								{
+									"annotations": {},
+									"labels":      {},
+								},
+							],
+							"spec": [
+								{
+									"containers": [
+										{
+											"args":           [],
+											"command":        [],
+											"env":            [],
+											"env_from":       [],
+											"liveness_probe": [],
+											"ports": [
+												{},
+											],
+											"resources": [
+												{
+													"limits":   {},
+													"requests": {},
+												},
+											],
+											"startup_probe": [
+												{
+													"grpc":     [],
+													"http_get": [],
+													"tcp_socket": [
+														{},
+													],
+												},
+											],
+											"volume_mounts": [],
+										},
+									],
+									"volumes": [],
+								},
+							],
+						},
+					],
+					"traffic": [
+						{},
+					],
+				},
+			},
+			"mode":          "managed",
+			"name":          "test_cloud_run_service",
+			"provider_name": "registry.terraform.io/hashicorp/google",
+			"type":          "google_cloud_run_service",
+		},
+		{
+			"address": "google_kms_crypto_key.crypto_key",
+			"change": {
+				"actions": [
+					"no-op",
+				],
+				"after": {
+					"crypto_key_backend":         "",
+					"destroy_scheduled_duration": "2592000s",
+					"effective_labels": {
+						"goog-terraform-provisioned": "true",
+					},
+					"id":          "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+					"import_only": false,
+					"key_ring":    "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2",
+					"labels":      {},
+					"name":        "crypto-key-example",
+					"primary": [
+						{
+							"name":  "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example/cryptoKeyVersions/1",
+							"state": "ENABLED",
+						},
+					],
+					"purpose":                       "ENCRYPT_DECRYPT",
+					"rotation_period":               "",
+					"skip_initial_version_creation": false,
+					"terraform_labels": {
+						"goog-terraform-provisioned": "true",
+					},
+					"timeouts": null,
+					"version_template": [
+						{
+							"algorithm":        "GOOGLE_SYMMETRIC_ENCRYPTION",
+							"protection_level": "SOFTWARE",
+						},
+					],
+				},
+				"after_sensitive": {
+					"effective_labels": {},
+					"labels":           {},
+					"primary": [
+						{},
+					],
+					"terraform_labels": {},
+					"version_template": [
+						{},
+					],
+				},
+				"after_unknown": {},
+				"before": {
+					"crypto_key_backend":         "",
+					"destroy_scheduled_duration": "2592000s",
+					"effective_labels": {
+						"goog-terraform-provisioned": "true",
+					},
+					"id":          "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+					"import_only": false,
+					"key_ring":    "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2",
+					"labels":      {},
+					"name":        "crypto-key-example",
+					"primary": [
+						{
+							"name":  "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example/cryptoKeyVersions/1",
+							"state": "ENABLED",
+						},
+					],
+					"purpose":                       "ENCRYPT_DECRYPT",
+					"rotation_period":               "",
+					"skip_initial_version_creation": false,
+					"terraform_labels": {
+						"goog-terraform-provisioned": "true",
+					},
+					"timeouts": null,
+					"version_template": [
+						{
+							"algorithm":        "GOOGLE_SYMMETRIC_ENCRYPTION",
+							"protection_level": "SOFTWARE",
+						},
+					],
+				},
+				"before_sensitive": {
+					"effective_labels": {},
+					"labels":           {},
+					"primary": [
+						{},
+					],
+					"terraform_labels": {},
+					"version_template": [
+						{},
+					],
+				},
+			},
+			"mode":          "managed",
+			"name":          "crypto_key",
+			"provider_name": "registry.terraform.io/hashicorp/google",
+			"type":          "google_kms_crypto_key",
+		},
+		{
+			"address": "google_kms_crypto_key_iam_member.crypto_key",
+			"change": {
+				"actions": [
+					"no-op",
+				],
+				"after": {
+					"condition":     [],
+					"crypto_key_id": "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+					"etag":          "BwYhT37bHGc=",
+					"id":            "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example/roles/cloudkms.cryptoKeyEncrypterDecrypter/serviceAccount:service-1059522574692@gcp-sa-artifactregistry.iam.gserviceaccount.com",
+					"member":        "serviceAccount:service-1059522574692@gcp-sa-artifactregistry.iam.gserviceaccount.com",
+					"role":          "roles/cloudkms.cryptoKeyEncrypterDecrypter",
+				},
+				"after_sensitive": {
+					"condition": [],
+				},
+				"after_unknown": {},
+				"before": {
+					"condition":     [],
+					"crypto_key_id": "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+					"etag":          "BwYhT37bHGc=",
+					"id":            "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example/roles/cloudkms.cryptoKeyEncrypterDecrypter/serviceAccount:service-1059522574692@gcp-sa-artifactregistry.iam.gserviceaccount.com",
+					"member":        "serviceAccount:service-1059522574692@gcp-sa-artifactregistry.iam.gserviceaccount.com",
+					"role":          "roles/cloudkms.cryptoKeyEncrypterDecrypter",
+				},
+				"before_sensitive": {
+					"condition": [],
+				},
+			},
+			"mode":          "managed",
+			"name":          "crypto_key",
+			"provider_name": "registry.terraform.io/hashicorp/google",
+			"type":          "google_kms_crypto_key_iam_member",
+		},
+		{
+			"address": "google_kms_crypto_key_iam_member.crypto_key2",
+			"change": {
+				"actions": [
+					"no-op",
+				],
+				"after": {
+					"condition":     [],
+					"crypto_key_id": "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+					"etag":          "BwYhT37bHGc=",
+					"id":            "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example/roles/cloudkms.cryptoKeyEncrypterDecrypter/serviceAccount:service-1059522574692@serverless-robot-prod.iam.gserviceaccount.com",
+					"member":        "serviceAccount:service-1059522574692@serverless-robot-prod.iam.gserviceaccount.com",
+					"role":          "roles/cloudkms.cryptoKeyEncrypterDecrypter",
+				},
+				"after_sensitive": {
+					"condition": [],
+				},
+				"after_unknown": {},
+				"before": {
+					"condition":     [],
+					"crypto_key_id": "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+					"etag":          "BwYhT37bHGc=",
+					"id":            "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example/roles/cloudkms.cryptoKeyEncrypterDecrypter/serviceAccount:service-1059522574692@serverless-robot-prod.iam.gserviceaccount.com",
+					"member":        "serviceAccount:service-1059522574692@serverless-robot-prod.iam.gserviceaccount.com",
+					"role":          "roles/cloudkms.cryptoKeyEncrypterDecrypter",
+				},
+				"before_sensitive": {
+					"condition": [],
+				},
+			},
+			"mode":          "managed",
+			"name":          "crypto_key2",
+			"provider_name": "registry.terraform.io/hashicorp/google",
+			"type":          "google_kms_crypto_key_iam_member",
+		},
+		{
+			"address": "google_kms_key_ring.key_ring",
+			"change": {
+				"actions": [
+					"no-op",
+				],
+				"after": {
+					"id":       "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2",
+					"location": "us-central1",
+					"name":     "keyring-example2",
+					"project":  "hc-7d2b1bb11c4f43dea1787d05735",
+					"timeouts": null,
+				},
+				"after_sensitive": {},
+				"after_unknown":   {},
+				"before": {
+					"id":       "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2",
+					"location": "us-central1",
+					"name":     "keyring-example2",
+					"project":  "hc-7d2b1bb11c4f43dea1787d05735",
+					"timeouts": null,
+				},
+				"before_sensitive": {},
+			},
+			"mode":          "managed",
+			"name":          "key_ring",
+			"provider_name": "registry.terraform.io/hashicorp/google",
+			"type":          "google_kms_key_ring",
+		},
+	],
+	"resource_drift": [
+		{
+			"address": "google_cloud_run_service.test_cloud_run_service",
+			"change": {
+				"actions": [
+					"update",
+				],
+				"after": {
+					"autogenerate_revision_name": false,
+					"id":       "locations/us-central1/namespaces/hc-7d2b1bb11c4f43dea1787d05735/services/cloud-run-service-test",
+					"location": "us-central1",
+					"metadata": [
+						{
+							"annotations": {},
+							"effective_annotations": {
+								"run.googleapis.com/ingress":        "all",
+								"run.googleapis.com/ingress-status": "all",
+								"run.googleapis.com/operation-id":   "4c63d938-4152-4b3f-99b3-c312416b074b",
+								"run.googleapis.com/urls":           "[\"https://cloud-run-service-test-1059522574692.us-central1.run.app\",\"https://cloud-run-service-test-cuir2kwoua-uc.a.run.app\"]",
+								"serving.knative.dev/creator":       "terraform@hc-7d2b1bb11c4f43dea1787d05735.iam.gserviceaccount.com",
+								"serving.knative.dev/lastModifier":  "terraform@hc-7d2b1bb11c4f43dea1787d05735.iam.gserviceaccount.com",
+							},
+							"effective_labels": {
+								"cloud.googleapis.com/location": "us-central1",
+							},
+							"generation":       1,
+							"labels":           {},
+							"namespace":        "hc-7d2b1bb11c4f43dea1787d05735",
+							"resource_version": "AAYhT39eUWk",
+							"self_link":        "/apis/serving.knative.dev/v1/namespaces/1059522574692/services/cloud-run-service-test",
+							"terraform_labels": {},
+							"uid":              "bb376b66-7e1c-4e72-a2a8-23be62aa2ff6",
+						},
+					],
+					"name":    "cloud-run-service-test",
+					"project": "hc-7d2b1bb11c4f43dea1787d05735",
+					"status": [
+						{
+							"conditions": [
+								{
+									"message": "",
+									"reason":  "",
+									"status":  "True",
+									"type":    "Ready",
+								},
+								{
+									"message": "",
+									"reason":  "",
+									"status":  "True",
+									"type":    "ConfigurationsReady",
+								},
+								{
+									"message": "",
+									"reason":  "",
+									"status":  "True",
+									"type":    "RoutesReady",
+								},
+							],
+							"latest_created_revision_name": "cloud-run-service-test-00001-l6g",
+							"latest_ready_revision_name":   "cloud-run-service-test-00001-l6g",
+							"observed_generation":          1,
+							"traffic": [
+								{
+									"latest_revision": true,
+									"percent":         100,
+									"revision_name":   "cloud-run-service-test-00001-l6g",
+									"tag":             "",
+									"url":             "",
+								},
+							],
+							"url": "https://cloud-run-service-test-cuir2kwoua-uc.a.run.app",
+						},
+					],
+					"template": [
+						{
+							"metadata": [
+								{
+									"annotations": {
+										"autoscaling.knative.dev/maxScale":                   "100",
+										"run.googleapis.com/encryption-key":                  "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+										"run.googleapis.com/post-key-revocation-action-type": "prevent-new",
+									},
+									"generation": 0,
+									"labels": {
+										"run.googleapis.com/startupProbeType": "Default",
+									},
+									"name":             "",
+									"namespace":        "",
+									"resource_version": "",
+									"self_link":        "",
+									"uid":              "",
+								},
+							],
+							"spec": [
+								{
+									"container_concurrency": 80,
+									"containers": [
+										{
+											"args":           [],
+											"command":        [],
+											"env":            [],
+											"env_from":       [],
+											"image":          "us-docker.pkg.dev/cloudrun/container/hello",
+											"liveness_probe": [],
+											"name":           "",
+											"ports": [
+												{
+													"container_port": 8080,
+													"name":           "http1",
+													"protocol":       "",
+												},
+											],
+											"resources": [
+												{
+													"limits": {
+														"cpu":    "1000m",
+														"memory": "512Mi",
+													},
+													"requests": {},
+												},
+											],
+											"startup_probe": [
+												{
+													"failure_threshold":     1,
+													"grpc":                  [],
+													"http_get":              [],
+													"initial_delay_seconds": 0,
+													"period_seconds":        240,
+													"tcp_socket": [
+														{
+															"port": 8080,
+														},
+													],
+													"timeout_seconds": 240,
+												},
+											],
+											"volume_mounts": [],
+											"working_dir":   "",
+										},
+									],
+									"service_account_name": "1059522574692-compute@developer.gserviceaccount.com",
+									"serving_state":        "",
+									"timeout_seconds":      300,
+									"volumes":              [],
+								},
+							],
+						},
+					],
+					"timeouts": null,
+					"traffic": [
+						{
+							"latest_revision": true,
+							"percent":         100,
+							"revision_name":   "",
+							"tag":             "",
+							"url":             "",
+						},
+					],
+				},
+				"after_sensitive": {
+					"metadata": [
+						{
+							"annotations":           {},
+							"effective_annotations": {},
+							"effective_labels":      {},
+							"labels":                {},
+							"terraform_labels":      {},
+						},
+					],
+					"status": [
+						{
+							"conditions": [
+								{},
+								{},
+								{},
+							],
+							"traffic": [
+								{},
+							],
+						},
+					],
+					"template": [
+						{
+							"metadata": [
+								{
+									"annotations": {},
+									"labels":      {},
+								},
+							],
+							"spec": [
+								{
+									"containers": [
+										{
+											"args":           [],
+											"command":        [],
+											"env":            [],
+											"env_from":       [],
+											"liveness_probe": [],
+											"ports": [
+												{},
+											],
+											"resources": [
+												{
+													"limits":   {},
+													"requests": {},
+												},
+											],
+											"startup_probe": [
+												{
+													"grpc":     [],
+													"http_get": [],
+													"tcp_socket": [
+														{},
+													],
+												},
+											],
+											"volume_mounts": [],
+										},
+									],
+									"volumes": [],
+								},
+							],
+						},
+					],
+					"traffic": [
+						{},
+					],
+				},
+				"after_unknown": {},
+				"before": {
+					"autogenerate_revision_name": false,
+					"id":       "locations/us-central1/namespaces/hc-7d2b1bb11c4f43dea1787d05735/services/cloud-run-service-test",
+					"location": "us-central1",
+					"metadata": [
+						{
+							"annotations": {},
+							"effective_annotations": {
+								"run.googleapis.com/ingress":        "all",
+								"run.googleapis.com/ingress-status": "all",
+								"run.googleapis.com/operation-id":   "4c63d938-4152-4b3f-99b3-c312416b074b",
+								"run.googleapis.com/urls":           "[\"https://cloud-run-service-test-1059522574692.us-central1.run.app\",\"https://cloud-run-service-test-cuir2kwoua-uc.a.run.app\"]",
+								"serving.knative.dev/creator":       "terraform@hc-7d2b1bb11c4f43dea1787d05735.iam.gserviceaccount.com",
+								"serving.knative.dev/lastModifier":  "terraform@hc-7d2b1bb11c4f43dea1787d05735.iam.gserviceaccount.com",
+							},
+							"effective_labels": {
+								"cloud.googleapis.com/location": "us-central1",
+							},
+							"generation":       1,
+							"labels":           {},
+							"namespace":        "hc-7d2b1bb11c4f43dea1787d05735",
+							"resource_version": "AAYhT39eUWk",
+							"self_link":        "/apis/serving.knative.dev/v1/namespaces/1059522574692/services/cloud-run-service-test",
+							"terraform_labels": {},
+							"uid":              "bb376b66-7e1c-4e72-a2a8-23be62aa2ff6",
+						},
+					],
+					"name":    "cloud-run-service-test",
+					"project": "hc-7d2b1bb11c4f43dea1787d05735",
+					"status": [
+						{
+							"conditions": [
+								{
+									"message": "",
+									"reason":  "",
+									"status":  "True",
+									"type":    "Ready",
+								},
+								{
+									"message": "",
+									"reason":  "",
+									"status":  "True",
+									"type":    "ConfigurationsReady",
+								},
+								{
+									"message": "",
+									"reason":  "",
+									"status":  "True",
+									"type":    "RoutesReady",
+								},
+							],
+							"latest_created_revision_name": "cloud-run-service-test-00001-l6g",
+							"latest_ready_revision_name":   "cloud-run-service-test-00001-l6g",
+							"observed_generation":          1,
+							"traffic": [
+								{
+									"latest_revision": true,
+									"percent":         100,
+									"revision_name":   "cloud-run-service-test-00001-l6g",
+									"tag":             "",
+									"url":             "",
+								},
+							],
+							"url": "https://cloud-run-service-test-cuir2kwoua-uc.a.run.app",
+						},
+					],
+					"template": [
+						{
+							"metadata": [
+								{
+									"annotations": {
+										"autoscaling.knative.dev/maxScale":                   "100",
+										"run.googleapis.com/encryption-key":                  "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+										"run.googleapis.com/post-key-revocation-action-type": "prevent-new",
+									},
+									"generation": 0,
+									"labels": {
+										"run.googleapis.com/startupProbeType": "Default",
+									},
+									"name":             "",
+									"namespace":        "",
+									"resource_version": "",
+									"self_link":        "",
+									"uid":              "",
+								},
+							],
+							"spec": [
+								{
+									"container_concurrency": 80,
+									"containers": [
+										{
+											"args":           null,
+											"command":        null,
+											"env":            [],
+											"env_from":       [],
+											"image":          "us-docker.pkg.dev/cloudrun/container/hello",
+											"liveness_probe": [],
+											"name":           "",
+											"ports": [
+												{
+													"container_port": 8080,
+													"name":           "http1",
+													"protocol":       "",
+												},
+											],
+											"resources": [
+												{
+													"limits": {
+														"cpu":    "1000m",
+														"memory": "512Mi",
+													},
+													"requests": {},
+												},
+											],
+											"startup_probe": [
+												{
+													"failure_threshold":     1,
+													"grpc":                  [],
+													"http_get":              [],
+													"initial_delay_seconds": 0,
+													"period_seconds":        240,
+													"tcp_socket": [
+														{
+															"port": 8080,
+														},
+													],
+													"timeout_seconds": 240,
+												},
+											],
+											"volume_mounts": [],
+											"working_dir":   "",
+										},
+									],
+									"service_account_name": "1059522574692-compute@developer.gserviceaccount.com",
+									"serving_state":        "",
+									"timeout_seconds":      300,
+									"volumes":              [],
+								},
+							],
+						},
+					],
+					"timeouts": null,
+					"traffic": [
+						{
+							"latest_revision": true,
+							"percent":         100,
+							"revision_name":   "",
+							"tag":             "",
+							"url":             "",
+						},
+					],
+				},
+				"before_sensitive": {
+					"metadata": [
+						{
+							"annotations":           {},
+							"effective_annotations": {},
+							"effective_labels":      {},
+							"labels":                {},
+							"terraform_labels":      {},
+						},
+					],
+					"status": [
+						{
+							"conditions": [
+								{},
+								{},
+								{},
+							],
+							"traffic": [
+								{},
+							],
+						},
+					],
+					"template": [
+						{
+							"metadata": [
+								{
+									"annotations": {},
+									"labels":      {},
+								},
+							],
+							"spec": [
+								{
+									"containers": [
+										{
+											"env":            [],
+											"env_from":       [],
+											"liveness_probe": [],
+											"ports": [
+												{},
+											],
+											"resources": [
+												{
+													"limits":   {},
+													"requests": {},
+												},
+											],
+											"startup_probe": [
+												{
+													"grpc":     [],
+													"http_get": [],
+													"tcp_socket": [
+														{},
+													],
+												},
+											],
+											"volume_mounts": [],
+										},
+									],
+									"volumes": [],
+								},
+							],
+						},
+					],
+					"traffic": [
+						{},
+					],
+				},
+			},
+			"mode":          "managed",
+			"name":          "test_cloud_run_service",
+			"provider_name": "registry.terraform.io/hashicorp/google",
+			"type":          "google_cloud_run_service",
+		},
+		{
+			"address": "google_kms_crypto_key_iam_member.crypto_key",
+			"change": {
+				"actions": [
+					"update",
+				],
+				"after": {
+					"condition":     [],
+					"crypto_key_id": "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+					"etag":          "BwYhT37bHGc=",
+					"id":            "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example/roles/cloudkms.cryptoKeyEncrypterDecrypter/serviceAccount:service-1059522574692@gcp-sa-artifactregistry.iam.gserviceaccount.com",
+					"member":        "serviceAccount:service-1059522574692@gcp-sa-artifactregistry.iam.gserviceaccount.com",
+					"role":          "roles/cloudkms.cryptoKeyEncrypterDecrypter",
+				},
+				"after_sensitive": {
+					"condition": [],
+				},
+				"after_unknown": {},
+				"before": {
+					"condition":     [],
+					"crypto_key_id": "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example",
+					"etag":          "BwYhTzMqDLk=",
+					"id":            "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example2/cryptoKeys/crypto-key-example/roles/cloudkms.cryptoKeyEncrypterDecrypter/serviceAccount:service-1059522574692@gcp-sa-artifactregistry.iam.gserviceaccount.com",
+					"member":        "serviceAccount:service-1059522574692@gcp-sa-artifactregistry.iam.gserviceaccount.com",
+					"role":          "roles/cloudkms.cryptoKeyEncrypterDecrypter",
+				},
+				"before_sensitive": {
+					"condition": [],
+				},
+			},
+			"mode":          "managed",
+			"name":          "crypto_key",
+			"provider_name": "registry.terraform.io/hashicorp/google",
+			"type":          "google_kms_crypto_key_iam_member",
+		},
+	],
+	"terraform_version": "1.9.5",
+	"timestamp":         "2024-09-04T18:40:50Z",
+}

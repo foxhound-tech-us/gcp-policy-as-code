@@ -1,4 +1,5 @@
 import "tfplan/v2" as tfplan
+import "types"
 
 allGCPArtifactRegistryRepositoryResources = filter tfplan.resource_changes as _, resource_changes {
     resource_changes.type is "google_artifact_registry_repository" and
@@ -7,28 +8,53 @@ allGCPArtifactRegistryRepositoryResources = filter tfplan.resource_changes as _,
 			resource_changes.change.actions is ["update"])
 }
 
-ensureCMEKNotNull = rule {
+getCMEKStatus = func(property) {
+    if property.change.after.kms_key_name else "notFound" == "notFound" {
+        if length(keys(property.change.after_unknown)) > 0 {
+            if property.change.after_unknown.kms_key_name else "notFound" == "notFound" {
+                print("Resource ", property.address, "was not provided a CMEK.")
+                return false
+            }
+        }
+        print("Resource ", property.address, "was not provided a CMEK.")
+        return false
+    }
+    if property.change.after.kms_key_name is "" or property.change.after.kms_key_name is null {
+        print("Resource ", property.address, " either has a null or \"\" CMEK key name.")
+        return false
+    }
+    return true
+}
+
+getFormat = func(property) {
+    if types.type_of(property.change.after.format) is "undefined" {
+        if types.type_of(property.change.after_unknown.format) is "undefined" {
+            print("Repository format must be provided and must be \"DOCKER\"")
+            return false
+        }
+        print("Repository format must be provided and must be \"DOCKER\"")
+        return false
+    }
+    if property.change.after.format is not "DOCKER" {
+        print("Repository format must be provided and must be \"DOCKER\"")
+        return false
+    }
+    return true
+}
+
+checkCMEK = rule {
     all allGCPArtifactRegistryRepositoryResources as _, GCPArtifactRegistryRepository {
-       GCPArtifactRegistryRepository.change.after.kms_key_name is not null or
-       GCPArtifactRegistryRepository.change.after_unknown.kms_key_name is true
+         getCMEKStatus(GCPArtifactRegistryRepository)
     }
 }
 
-ensureCMEKNotEmptyString = rule {
+checkFormat = rule {
     all allGCPArtifactRegistryRepositoryResources as _, GCPArtifactRegistryRepository {
-       GCPArtifactRegistryRepository.change.after.kms_key_name is not "" or
-       GCPArtifactRegistryRepository.change.after_unknown.kms_key_name is true
-    }
-}
-
-ensureFormat = rule {
-    all allGCPArtifactRegistryRepositoryResources as _, GCPArtifactRegistryRepository {
-        GCPArtifactRegistryRepository.change.after.format is "DOCKER"
+         getFormat(GCPArtifactRegistryRepository)
     }
 }
 
 main = rule {
-    ensureCMEKNotNull and
-    ensureCMEKNotEmptyString and
-    ensureFormat
+    checkCMEK and
+    checkFormat
 }

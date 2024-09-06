@@ -1,0 +1,60 @@
+import "tfplan/v2" as tfplan
+import "types"
+
+allGCPCloudRunServiceResources = filter tfplan.resource_changes as _, resource_changes {
+    resource_changes.type is "google_cloud_run_service" and
+    resource_changes.mode is "managed" and
+    (resource_changes.change.actions contains "create" or
+			resource_changes.change.actions is ["update"])
+}
+
+getCMEKStatus = func(property) {
+    if property.change.after.template[0].metadata[0].annotations["run.googleapis.com/encryption-key"] else "notFound" == "notFound" {
+        if length(keys(property.change.after_unknown)) > 0 {
+            if property.change.after_unknown.template[0].metadata[0].annotations["run.googleapis.com/encryption-key"] else "notFound" == "notFound" {
+                print("Resource ", property.address, "was not provided a CMEK.")
+                return false
+            }
+        }
+        print("Resource ", property.address, "was not provided a CMEK.")
+        return false
+    }
+    keyName = property.change.after.template[0].metadata[0].annotations["run.googleapis.com/encryption-key"]
+    if keyName is "" or keyName is null {
+        print("Resource ", property.address, " either has a null or \"\" CMEK key name.")
+        return false
+    }
+    return true
+}
+
+getPorts = func(property) {
+    allowedPorts = ["http1", "h2c"]
+    containers = property.change.after.template[0].spec[0].containers
+    for containers as container {
+        ports = container.ports
+        for ports as port {
+            if port.name not in allowedPorts {
+                print("Resource ", property.address, " has a container with a port not named \"http1\" or \"h2c\".")
+                return false
+            }
+        }
+    }
+    return true
+}
+
+checkCMEK = rule {
+    all allGCPCloudRunServiceResources as _, GCPCloudRunServiceResource {
+        getCMEKStatus(GCPCloudRunServiceResource)
+    }
+}
+
+checkPorts = rule {
+    all allGCPCloudRunServiceResources as _, GCPCloudRunServiceResource {
+        getPorts(GCPCloudRunServiceResource)
+    }
+}
+
+main = rule {
+    checkCMEK and 
+    checkPorts
+}
