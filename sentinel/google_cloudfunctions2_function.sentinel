@@ -1,0 +1,73 @@
+import "tfplan/v2" as tfplan
+
+allGCPCloudFunction2Resources = filter tfplan.resource_changes as _, resource_changes {
+    resource_changes.type is "google_cloudfunctions2_function" and
+    resource_changes.mode is "managed" and
+    (resource_changes.change.actions contains "create" or
+			resource_changes.change.actions is ["update"])
+}
+
+getCMEKStatus = func(property) {
+    if property.change.after.kms_key_name else "notFound" == "notFound" {
+        if length(keys(property.change.after_unknown)) > 0 {
+            if property.change.after_unknown.kms_key_name else "notFound" == "notFound" {
+                print("Resource ", property.address, "was not provided a CMEK.")
+                return false
+            }
+        }
+        print("Resource ", property.address, "was not provided a CMEK.")
+        return false
+    }
+    keyName = property.change.after.kms_key_name
+    if keyName is "" or keyName is null {
+        print("Resource ", property.address, " either has a null or \"\" CMEK key name.")
+        return false
+    }
+    return true
+}
+
+getIngressSettings = func(property) {
+    if property.change.after.service_config[0].ingress_settings else "notFound" == "notFound" {
+        print("Resource ", property.address, "must have ingress_settings set.")
+        return false
+    } else if property.change.after.service_config[0].ingress_settings != "ALLOW_INTERNAL_ONLY" {
+        print("Resource ", property.address, "must have ingress_settings set to \"ALLOW_INTERNAL_ONLY\"")
+        return false
+    }
+    return true
+}
+
+getVPCEgressSettings = func(property) {
+    if property.change.after.service_config[0].vpc_connector_egress_settings else "notFound" == "notFound" {
+        print("Resource ", property.address, "must have vpc_connector_egress_settings set.")
+        return false
+    } else if property.change.after.service_config[0].vpc_connector_egress_settings != "ALL_TRAFFIC" {
+        print("Resource ", property.address, "must have vpc_connector_egress_settings set to \"ALL_TRAFFIC\"")
+        return false
+    }
+    return true
+}
+
+checkCMEK = rule {
+    all allGCPCloudFunction2Resources as _, GCPCloudFunction2Resource {
+        getCMEKStatus(GCPCloudFunction2Resource)
+    }
+}
+
+checkIngressSettings = rule {
+    all allGCPCloudFunction2Resources as _, GCPCloudFunction2Resource {
+        getIngressSettings(GCPCloudFunction2Resource)
+    }
+}
+
+checkEgressSettings = rule {
+    all allGCPCloudFunction2Resources as _, GCPCloudFunction2Resource {
+        getVPCEgressSettings(GCPCloudFunction2Resource)
+    }
+}
+
+main = rule {
+    checkCMEK and
+    checkIngressSettings and
+    checkEgressSettings
+}
