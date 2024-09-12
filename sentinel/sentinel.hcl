@@ -12,3 +12,8 @@ policy "google_cloundfunctions2_function" {
   source = "./google_cloudfunctions2_function.sentinel"
   enforcement_level = "hard-mandatory"
 }
+
+policy "ensure_allowed_root_resource_or_module" {
+  source = "./ensure_allowed_root_resource_or_module.sentinel"
+  enforcement_level = "hard_mandatory"
+}

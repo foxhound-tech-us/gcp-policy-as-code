@@ -1,0 +1,951 @@
+terraform_version = "1.9.5"
+
+planned_values = {
+	"outputs": {},
+	"resources": {
+		"google_artifact_registry_repository.test": {
+			"address":        "google_artifact_registry_repository.test",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "",
+			"name":           "test",
+			"provider_name":  "registry.terraform.io/hashicorp/google",
+			"tainted":        false,
+			"type":           "google_artifact_registry_repository",
+			"values": {
+				"cleanup_policies":       [],
+				"cleanup_policy_dry_run": null,
+				"description":            "example docker repository with cmek",
+				"docker_config":          [],
+				"effective_labels": {
+					"goog-terraform-provisioned": "true",
+				},
+				"format":                   "DOCKER",
+				"kms_key_name":             "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example/cryptoKeys/crypto-key-example",
+				"labels":                   null,
+				"maven_config":             [],
+				"mode":                     "STANDARD_REPOSITORY",
+				"project":                  "hc-7d2b1bb11c4f43dea1787d05735",
+				"remote_repository_config": [],
+				"repository_id":            "my-repository",
+				"terraform_labels": {
+					"goog-terraform-provisioned": "true",
+				},
+				"timeouts":                  null,
+				"virtual_repository_config": [],
+			},
+		},
+		"google_kms_crypto_key.crypto_key": {
+			"address":        "google_kms_crypto_key.crypto_key",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "",
+			"name":           "crypto_key",
+			"provider_name":  "registry.terraform.io/hashicorp/google",
+			"tainted":        false,
+			"type":           "google_kms_crypto_key",
+			"values": {
+				"crypto_key_backend":         "",
+				"destroy_scheduled_duration": "2592000s",
+				"effective_labels": {
+					"goog-terraform-provisioned": "true",
+				},
+				"id":          "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example/cryptoKeys/crypto-key-example",
+				"import_only": false,
+				"key_ring":    "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example",
+				"labels":      {},
+				"name":        "crypto-key-example",
+				"primary": [
+					{
+						"name":  "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example/cryptoKeys/crypto-key-example/cryptoKeyVersions/1",
+						"state": "ENABLED",
+					},
+				],
+				"purpose":                       "ENCRYPT_DECRYPT",
+				"rotation_period":               "",
+				"skip_initial_version_creation": false,
+				"terraform_labels": {
+					"goog-terraform-provisioned": "true",
+				},
+				"timeouts": null,
+				"version_template": [
+					{
+						"algorithm":        "GOOGLE_SYMMETRIC_ENCRYPTION",
+						"protection_level": "SOFTWARE",
+					},
+				],
+			},
+		},
+		"google_kms_crypto_key_iam_member.crypto_key": {
+			"address":        "google_kms_crypto_key_iam_member.crypto_key",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "",
+			"name":           "crypto_key",
+			"provider_name":  "registry.terraform.io/hashicorp/google",
+			"tainted":        false,
+			"type":           "google_kms_crypto_key_iam_member",
+			"values": {
+				"condition":     [],
+				"crypto_key_id": "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example/cryptoKeys/crypto-key-example",
+				"member":        "serviceAccount:service-1059522574692@gcp-sa-artifactregistry.iam.gserviceaccount.com",
+				"role":          "roles/cloudkms.cryptoKeyEncrypterDecrypter",
+			},
+		},
+		"google_kms_key_ring.key_ring": {
+			"address":        "google_kms_key_ring.key_ring",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "",
+			"name":           "key_ring",
+			"provider_name":  "registry.terraform.io/hashicorp/google",
+			"tainted":        false,
+			"type":           "google_kms_key_ring",
+			"values": {
+				"id":       "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example",
+				"location": "us-central1",
+				"name":     "keyring-example",
+				"project":  "hc-7d2b1bb11c4f43dea1787d05735",
+				"timeouts": null,
+			},
+		},
+	},
+}
+
+variables = {}
+
+resource_changes = {
+	"google_api_gateway_api.test": {
+		"address": "google_api_gateway_api.test",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"cleanup_policies":       [],
+				"cleanup_policy_dry_run": null,
+				"description":            "example docker repository with cmek",
+				"docker_config":          [],
+				"effective_labels": {
+					"goog-terraform-provisioned": "true",
+				},
+				"format":                   "NOTDOCKER",
+				"kms_key_name":             null,
+				"labels":                   null,
+				"maven_config":             [],
+				"mode":                     "STANDARD_REPOSITORY",
+				"project":                  "hc-7d2b1bb11c4f43dea1787d05735",
+				"remote_repository_config": [],
+				"repository_id":            "my-repository",
+				"terraform_labels": {
+					"goog-terraform-provisioned": "true",
+				},
+				"timeouts":                  null,
+				"virtual_repository_config": [],
+			},
+			"after_unknown": {
+				"cleanup_policies": [],
+				"create_time":      true,
+				"docker_config":    [],
+				"effective_labels": {},
+				"id":               true,
+				"location":         true,
+				"maven_config":     [],
+				"name":             true,
+				"remote_repository_config":  [],
+				"terraform_labels":          {},
+				"update_time":               true,
+				"virtual_repository_config": [],
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "test",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"type":           "google_api_gateway_api",
+	},
+}
+
+resource_drift = {
+	"google_kms_crypto_key.crypto_key": {
+		"address": "google_kms_crypto_key.crypto_key",
+		"change": {
+			"actions": [
+				"update",
+			],
+			"after": {
+				"crypto_key_backend":         "",
+				"destroy_scheduled_duration": "2592000s",
+				"effective_labels": {
+					"goog-terraform-provisioned": "true",
+				},
+				"id":          "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example/cryptoKeys/crypto-key-example",
+				"import_only": false,
+				"key_ring":    "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example",
+				"labels":      {},
+				"name":        "crypto-key-example",
+				"primary": [
+					{
+						"name":  "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example/cryptoKeys/crypto-key-example/cryptoKeyVersions/1",
+						"state": "ENABLED",
+					},
+				],
+				"purpose":                       "ENCRYPT_DECRYPT",
+				"rotation_period":               "",
+				"skip_initial_version_creation": false,
+				"terraform_labels": {
+					"goog-terraform-provisioned": "true",
+				},
+				"timeouts": null,
+				"version_template": [
+					{
+						"algorithm":        "GOOGLE_SYMMETRIC_ENCRYPTION",
+						"protection_level": "SOFTWARE",
+					},
+				],
+			},
+			"after_unknown": {},
+			"before": {
+				"crypto_key_backend":         "",
+				"destroy_scheduled_duration": "2592000s",
+				"effective_labels": {
+					"goog-terraform-provisioned": "true",
+				},
+				"id":          "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example/cryptoKeys/crypto-key-example",
+				"import_only": false,
+				"key_ring":    "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example",
+				"labels":      null,
+				"name":        "crypto-key-example",
+				"primary": [
+					{
+						"name":  "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example/cryptoKeys/crypto-key-example/cryptoKeyVersions/1",
+						"state": "ENABLED",
+					},
+				],
+				"purpose":                       "ENCRYPT_DECRYPT",
+				"rotation_period":               "",
+				"skip_initial_version_creation": false,
+				"terraform_labels": {
+					"goog-terraform-provisioned": "true",
+				},
+				"timeouts": null,
+				"version_template": [
+					{
+						"algorithm":        "GOOGLE_SYMMETRIC_ENCRYPTION",
+						"protection_level": "SOFTWARE",
+					},
+				],
+			},
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "crypto_key",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"type":           "google_kms_crypto_key",
+	},
+}
+
+output_changes = {}
+
+raw = {
+	"configuration": {
+		"provider_config": {
+			"google": {
+				"expressions": {
+					"project": {
+						"constant_value": "hc-7d2b1bb11c4f43dea1787d05735",
+					},
+					"region": {
+						"constant_value": "us-central1",
+					},
+				},
+				"full_name":          "registry.terraform.io/hashicorp/google",
+				"name":               "google",
+				"version_constraint": "6.0.1",
+			},
+		},
+		"root_module": {
+			"resources": [
+				{
+					"address": "google_artifact_registry_repository.test",
+					"depends_on": [
+						"google_kms_crypto_key_iam_member.crypto_key",
+					],
+					"expressions": {
+						"description": {
+							"constant_value": "example docker repository with cmek",
+						},
+						"format": {
+							"constant_value": "DOCKER",
+						},
+						"kms_key_name": {
+							"references": [
+								"google_kms_crypto_key.crypto_key.id",
+								"google_kms_crypto_key.crypto_key",
+							],
+						},
+						"repository_id": {
+							"constant_value": "my-repository",
+						},
+					},
+					"mode":                "managed",
+					"name":                "test",
+					"provider_config_key": "google",
+					"schema_version":      0,
+					"type":                "google_artifact_registry_repository",
+				},
+				{
+					"address": "google_kms_crypto_key.crypto_key",
+					"expressions": {
+						"key_ring": {
+							"references": [
+								"google_kms_key_ring.key_ring.id",
+								"google_kms_key_ring.key_ring",
+							],
+						},
+						"name": {
+							"constant_value": "crypto-key-example",
+						},
+					},
+					"mode":                "managed",
+					"name":                "crypto_key",
+					"provider_config_key": "google",
+					"schema_version":      1,
+					"type":                "google_kms_crypto_key",
+				},
+				{
+					"address": "google_kms_crypto_key_iam_member.crypto_key",
+					"expressions": {
+						"crypto_key_id": {
+							"references": [
+								"google_kms_crypto_key.crypto_key.id",
+								"google_kms_crypto_key.crypto_key",
+							],
+						},
+						"member": {
+							"references": [
+								"data.google_project.project.number",
+								"data.google_project.project",
+							],
+						},
+						"role": {
+							"constant_value": "roles/cloudkms.cryptoKeyEncrypterDecrypter",
+						},
+					},
+					"mode":                "managed",
+					"name":                "crypto_key",
+					"provider_config_key": "google",
+					"schema_version":      0,
+					"type":                "google_kms_crypto_key_iam_member",
+				},
+				{
+					"address": "google_kms_key_ring.key_ring",
+					"expressions": {
+						"location": {
+							"constant_value": "us-central1",
+						},
+						"name": {
+							"constant_value": "keyring-example",
+						},
+					},
+					"mode":                "managed",
+					"name":                "key_ring",
+					"provider_config_key": "google",
+					"schema_version":      0,
+					"type":                "google_kms_key_ring",
+				},
+				{
+					"address":             "data.google_project.project",
+					"mode":                "data",
+					"name":                "project",
+					"provider_config_key": "google",
+					"schema_version":      0,
+					"type":                "google_project",
+				},
+			],
+		},
+	},
+	"format_version": "1.2",
+	"planned_values": {
+		"root_module": {
+			"resources": [
+				{
+					"address":        "google_artifact_registry_repository.test",
+					"mode":           "managed",
+					"name":           "test",
+					"provider_name":  "registry.terraform.io/hashicorp/google",
+					"schema_version": 0,
+					"sensitive_values": {
+						"cleanup_policies":          [],
+						"docker_config":             [],
+						"effective_labels":          {},
+						"maven_config":              [],
+						"remote_repository_config":  [],
+						"terraform_labels":          {},
+						"virtual_repository_config": [],
+					},
+					"type": "google_artifact_registry_repository",
+					"values": {
+						"cleanup_policies":       [],
+						"cleanup_policy_dry_run": null,
+						"description":            "example docker repository with cmek",
+						"docker_config":          [],
+						"effective_labels": {
+							"goog-terraform-provisioned": "true",
+						},
+						"format":                   "DOCKER",
+						"kms_key_name":             "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example/cryptoKeys/crypto-key-example",
+						"labels":                   null,
+						"maven_config":             [],
+						"mode":                     "STANDARD_REPOSITORY",
+						"project":                  "hc-7d2b1bb11c4f43dea1787d05735",
+						"remote_repository_config": [],
+						"repository_id":            "my-repository",
+						"terraform_labels": {
+							"goog-terraform-provisioned": "true",
+						},
+						"timeouts":                  null,
+						"virtual_repository_config": [],
+					},
+				},
+				{
+					"address":        "google_kms_crypto_key.crypto_key",
+					"mode":           "managed",
+					"name":           "crypto_key",
+					"provider_name":  "registry.terraform.io/hashicorp/google",
+					"schema_version": 1,
+					"sensitive_values": {
+						"effective_labels": {},
+						"labels":           {},
+						"primary": [
+							{},
+						],
+						"terraform_labels": {},
+						"version_template": [
+							{},
+						],
+					},
+					"type": "google_kms_crypto_key",
+					"values": {
+						"crypto_key_backend":         "",
+						"destroy_scheduled_duration": "2592000s",
+						"effective_labels": {
+							"goog-terraform-provisioned": "true",
+						},
+						"id":          "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example/cryptoKeys/crypto-key-example",
+						"import_only": false,
+						"key_ring":    "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example",
+						"labels":      {},
+						"name":        "crypto-key-example",
+						"primary": [
+							{
+								"name":  "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example/cryptoKeys/crypto-key-example/cryptoKeyVersions/1",
+								"state": "ENABLED",
+							},
+						],
+						"purpose":                       "ENCRYPT_DECRYPT",
+						"rotation_period":               "",
+						"skip_initial_version_creation": false,
+						"terraform_labels": {
+							"goog-terraform-provisioned": "true",
+						},
+						"timeouts": null,
+						"version_template": [
+							{
+								"algorithm":        "GOOGLE_SYMMETRIC_ENCRYPTION",
+								"protection_level": "SOFTWARE",
+							},
+						],
+					},
+				},
+				{
+					"address":        "google_kms_crypto_key_iam_member.crypto_key",
+					"mode":           "managed",
+					"name":           "crypto_key",
+					"provider_name":  "registry.terraform.io/hashicorp/google",
+					"schema_version": 0,
+					"sensitive_values": {
+						"condition": [],
+					},
+					"type": "google_kms_crypto_key_iam_member",
+					"values": {
+						"condition":     [],
+						"crypto_key_id": "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example/cryptoKeys/crypto-key-example",
+						"member":        "serviceAccount:service-1059522574692@gcp-sa-artifactregistry.iam.gserviceaccount.com",
+						"role":          "roles/cloudkms.cryptoKeyEncrypterDecrypter",
+					},
+				},
+				{
+					"address":          "google_kms_key_ring.key_ring",
+					"mode":             "managed",
+					"name":             "key_ring",
+					"provider_name":    "registry.terraform.io/hashicorp/google",
+					"schema_version":   0,
+					"sensitive_values": {},
+					"type":             "google_kms_key_ring",
+					"values": {
+						"id":       "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example",
+						"location": "us-central1",
+						"name":     "keyring-example",
+						"project":  "hc-7d2b1bb11c4f43dea1787d05735",
+						"timeouts": null,
+					},
+				},
+			],
+		},
+	},
+	"prior_state": {
+		"format_version":    "1.0",
+		"terraform_version": "1.9.5",
+		"values": {
+			"root_module": {
+				"resources": [
+					{
+						"address":        "data.google_project.project",
+						"mode":           "data",
+						"name":           "project",
+						"provider_name":  "registry.terraform.io/hashicorp/google",
+						"schema_version": 0,
+						"sensitive_values": {
+							"effective_labels": {},
+							"labels":           {},
+							"terraform_labels": {},
+						},
+						"type": "google_project",
+						"values": {
+							"auto_create_network": null,
+							"billing_account":     null,
+							"deletion_policy":     "PREVENT",
+							"effective_labels": {
+								"environment": "test",
+							},
+							"folder_id": "255483794500",
+							"id":        "projects/hc-7d2b1bb11c4f43dea1787d05735",
+							"labels": {
+								"environment": "test",
+							},
+							"name":       "jdefrank2-test",
+							"number":     "1059522574692",
+							"org_id":     "",
+							"project_id": "hc-7d2b1bb11c4f43dea1787d05735",
+							"terraform_labels": {
+								"environment": "test",
+							},
+						},
+					},
+					{
+						"address": "google_kms_crypto_key.crypto_key",
+						"depends_on": [
+							"google_kms_key_ring.key_ring",
+						],
+						"mode":           "managed",
+						"name":           "crypto_key",
+						"provider_name":  "registry.terraform.io/hashicorp/google",
+						"schema_version": 1,
+						"sensitive_values": {
+							"effective_labels": {},
+							"labels":           {},
+							"primary": [
+								{},
+							],
+							"terraform_labels": {},
+							"version_template": [
+								{},
+							],
+						},
+						"type": "google_kms_crypto_key",
+						"values": {
+							"crypto_key_backend":         "",
+							"destroy_scheduled_duration": "2592000s",
+							"effective_labels": {
+								"goog-terraform-provisioned": "true",
+							},
+							"id":          "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example/cryptoKeys/crypto-key-example",
+							"import_only": false,
+							"key_ring":    "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example",
+							"labels":      {},
+							"name":        "crypto-key-example",
+							"primary": [
+								{
+									"name":  "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example/cryptoKeys/crypto-key-example/cryptoKeyVersions/1",
+									"state": "ENABLED",
+								},
+							],
+							"purpose":                       "ENCRYPT_DECRYPT",
+							"rotation_period":               "",
+							"skip_initial_version_creation": false,
+							"terraform_labels": {
+								"goog-terraform-provisioned": "true",
+							},
+							"timeouts": null,
+							"version_template": [
+								{
+									"algorithm":        "GOOGLE_SYMMETRIC_ENCRYPTION",
+									"protection_level": "SOFTWARE",
+								},
+							],
+						},
+					},
+					{
+						"address":          "google_kms_key_ring.key_ring",
+						"mode":             "managed",
+						"name":             "key_ring",
+						"provider_name":    "registry.terraform.io/hashicorp/google",
+						"schema_version":   0,
+						"sensitive_values": {},
+						"type":             "google_kms_key_ring",
+						"values": {
+							"id":       "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example",
+							"location": "us-central1",
+							"name":     "keyring-example",
+							"project":  "hc-7d2b1bb11c4f43dea1787d05735",
+							"timeouts": null,
+						},
+					},
+				],
+			},
+		},
+	},
+	"relevant_attributes": [
+		{
+			"attribute": [
+				"number",
+			],
+			"resource": "data.google_project.project",
+		},
+		{
+			"attribute": [
+				"id",
+			],
+			"resource": "google_kms_crypto_key.crypto_key",
+		},
+	],
+	"resource_changes": [
+		{
+			"address": "google_artifact_registry_repository.test",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {
+					"cleanup_policies":       [],
+					"cleanup_policy_dry_run": null,
+					"description":            "example docker repository with cmek",
+					"docker_config":          [],
+					"effective_labels": {
+						"goog-terraform-provisioned": "true",
+					},
+					"format":                   "DOCKER",
+					"kms_key_name":             "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example/cryptoKeys/crypto-key-example",
+					"labels":                   null,
+					"maven_config":             [],
+					"mode":                     "STANDARD_REPOSITORY",
+					"project":                  "hc-7d2b1bb11c4f43dea1787d05735",
+					"remote_repository_config": [],
+					"repository_id":            "my-repository",
+					"terraform_labels": {
+						"goog-terraform-provisioned": "true",
+					},
+					"timeouts":                  null,
+					"virtual_repository_config": [],
+				},
+				"after_sensitive": {
+					"cleanup_policies":          [],
+					"docker_config":             [],
+					"effective_labels":          {},
+					"maven_config":              [],
+					"remote_repository_config":  [],
+					"terraform_labels":          {},
+					"virtual_repository_config": [],
+				},
+				"after_unknown": {
+					"cleanup_policies": [],
+					"create_time":      true,
+					"docker_config":    [],
+					"effective_labels": {},
+					"id":               true,
+					"location":         true,
+					"maven_config":     [],
+					"name":             true,
+					"remote_repository_config":  [],
+					"terraform_labels":          {},
+					"update_time":               true,
+					"virtual_repository_config": [],
+				},
+				"before":           null,
+				"before_sensitive": false,
+			},
+			"mode":          "managed",
+			"name":          "test",
+			"provider_name": "registry.terraform.io/hashicorp/google",
+			"type":          "google_artifact_registry_repository",
+		},
+		{
+			"address": "google_kms_crypto_key.crypto_key",
+			"change": {
+				"actions": [
+					"no-op",
+				],
+				"after": {
+					"crypto_key_backend":         "",
+					"destroy_scheduled_duration": "2592000s",
+					"effective_labels": {
+						"goog-terraform-provisioned": "true",
+					},
+					"id":          "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example/cryptoKeys/crypto-key-example",
+					"import_only": false,
+					"key_ring":    "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example",
+					"labels":      {},
+					"name":        "crypto-key-example",
+					"primary": [
+						{
+							"name":  "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example/cryptoKeys/crypto-key-example/cryptoKeyVersions/1",
+							"state": "ENABLED",
+						},
+					],
+					"purpose":                       "ENCRYPT_DECRYPT",
+					"rotation_period":               "",
+					"skip_initial_version_creation": false,
+					"terraform_labels": {
+						"goog-terraform-provisioned": "true",
+					},
+					"timeouts": null,
+					"version_template": [
+						{
+							"algorithm":        "GOOGLE_SYMMETRIC_ENCRYPTION",
+							"protection_level": "SOFTWARE",
+						},
+					],
+				},
+				"after_sensitive": {
+					"effective_labels": {},
+					"labels":           {},
+					"primary": [
+						{},
+					],
+					"terraform_labels": {},
+					"version_template": [
+						{},
+					],
+				},
+				"after_unknown": {},
+				"before": {
+					"crypto_key_backend":         "",
+					"destroy_scheduled_duration": "2592000s",
+					"effective_labels": {
+						"goog-terraform-provisioned": "true",
+					},
+					"id":          "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example/cryptoKeys/crypto-key-example",
+					"import_only": false,
+					"key_ring":    "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example",
+					"labels":      {},
+					"name":        "crypto-key-example",
+					"primary": [
+						{
+							"name":  "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example/cryptoKeys/crypto-key-example/cryptoKeyVersions/1",
+							"state": "ENABLED",
+						},
+					],
+					"purpose":                       "ENCRYPT_DECRYPT",
+					"rotation_period":               "",
+					"skip_initial_version_creation": false,
+					"terraform_labels": {
+						"goog-terraform-provisioned": "true",
+					},
+					"timeouts": null,
+					"version_template": [
+						{
+							"algorithm":        "GOOGLE_SYMMETRIC_ENCRYPTION",
+							"protection_level": "SOFTWARE",
+						},
+					],
+				},
+				"before_sensitive": {
+					"effective_labels": {},
+					"labels":           {},
+					"primary": [
+						{},
+					],
+					"terraform_labels": {},
+					"version_template": [
+						{},
+					],
+				},
+			},
+			"mode":          "managed",
+			"name":          "crypto_key",
+			"provider_name": "registry.terraform.io/hashicorp/google",
+			"type":          "google_kms_crypto_key",
+		},
+		{
+			"address": "google_kms_crypto_key_iam_member.crypto_key",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {
+					"condition":     [],
+					"crypto_key_id": "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example/cryptoKeys/crypto-key-example",
+					"member":        "serviceAccount:service-1059522574692@gcp-sa-artifactregistry.iam.gserviceaccount.com",
+					"role":          "roles/cloudkms.cryptoKeyEncrypterDecrypter",
+				},
+				"after_sensitive": {
+					"condition": [],
+				},
+				"after_unknown": {
+					"condition": [],
+					"etag":      true,
+					"id":        true,
+				},
+				"before":           null,
+				"before_sensitive": false,
+			},
+			"mode":          "managed",
+			"name":          "crypto_key",
+			"provider_name": "registry.terraform.io/hashicorp/google",
+			"type":          "google_kms_crypto_key_iam_member",
+		},
+		{
+			"address": "google_kms_key_ring.key_ring",
+			"change": {
+				"actions": [
+					"no-op",
+				],
+				"after": {
+					"id":       "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example",
+					"location": "us-central1",
+					"name":     "keyring-example",
+					"project":  "hc-7d2b1bb11c4f43dea1787d05735",
+					"timeouts": null,
+				},
+				"after_sensitive": {},
+				"after_unknown":   {},
+				"before": {
+					"id":       "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example",
+					"location": "us-central1",
+					"name":     "keyring-example",
+					"project":  "hc-7d2b1bb11c4f43dea1787d05735",
+					"timeouts": null,
+				},
+				"before_sensitive": {},
+			},
+			"mode":          "managed",
+			"name":          "key_ring",
+			"provider_name": "registry.terraform.io/hashicorp/google",
+			"type":          "google_kms_key_ring",
+		},
+	],
+	"resource_drift": [
+		{
+			"address": "google_kms_crypto_key.crypto_key",
+			"change": {
+				"actions": [
+					"update",
+				],
+				"after": {
+					"crypto_key_backend":         "",
+					"destroy_scheduled_duration": "2592000s",
+					"effective_labels": {
+						"goog-terraform-provisioned": "true",
+					},
+					"id":          "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example/cryptoKeys/crypto-key-example",
+					"import_only": false,
+					"key_ring":    "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example",
+					"labels":      {},
+					"name":        "crypto-key-example",
+					"primary": [
+						{
+							"name":  "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example/cryptoKeys/crypto-key-example/cryptoKeyVersions/1",
+							"state": "ENABLED",
+						},
+					],
+					"purpose":                       "ENCRYPT_DECRYPT",
+					"rotation_period":               "",
+					"skip_initial_version_creation": false,
+					"terraform_labels": {
+						"goog-terraform-provisioned": "true",
+					},
+					"timeouts": null,
+					"version_template": [
+						{
+							"algorithm":        "GOOGLE_SYMMETRIC_ENCRYPTION",
+							"protection_level": "SOFTWARE",
+						},
+					],
+				},
+				"after_sensitive": {
+					"effective_labels": {},
+					"labels":           {},
+					"primary": [
+						{},
+					],
+					"terraform_labels": {},
+					"version_template": [
+						{},
+					],
+				},
+				"after_unknown": {},
+				"before": {
+					"crypto_key_backend":         "",
+					"destroy_scheduled_duration": "2592000s",
+					"effective_labels": {
+						"goog-terraform-provisioned": "true",
+					},
+					"id":          "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example/cryptoKeys/crypto-key-example",
+					"import_only": false,
+					"key_ring":    "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example",
+					"labels":      null,
+					"name":        "crypto-key-example",
+					"primary": [
+						{
+							"name":  "projects/hc-7d2b1bb11c4f43dea1787d05735/locations/us-central1/keyRings/keyring-example/cryptoKeys/crypto-key-example/cryptoKeyVersions/1",
+							"state": "ENABLED",
+						},
+					],
+					"purpose":                       "ENCRYPT_DECRYPT",
+					"rotation_period":               "",
+					"skip_initial_version_creation": false,
+					"terraform_labels": {
+						"goog-terraform-provisioned": "true",
+					},
+					"timeouts": null,
+					"version_template": [
+						{
+							"algorithm":        "GOOGLE_SYMMETRIC_ENCRYPTION",
+							"protection_level": "SOFTWARE",
+						},
+					],
+				},
+				"before_sensitive": {
+					"effective_labels": {},
+					"primary": [
+						{},
+					],
+					"terraform_labels": {},
+					"version_template": [
+						{},
+					],
+				},
+			},
+			"mode":          "managed",
+			"name":          "crypto_key",
+			"provider_name": "registry.terraform.io/hashicorp/google",
+			"type":          "google_kms_crypto_key",
+		},
+	],
+	"terraform_version": "1.9.5",
+	"timestamp":         "2024-08-27T19:41:01Z",
+}

@@ -1,0 +1,37 @@
+import "tfplan/v2" as tfplan
+
+allowedRootModuleResources = [
+    "google_artifact_registry_repository",
+    "google_cloud_run_service",
+    "google_cloudfunctions2_function",
+    "google_kms_key_ring",
+    "google_kms_crypto_key",
+    "google_kms_crypto_key_iam_member",
+]
+
+allResourceChanges = filter tfplan.resource_changes as _, resource_changes {
+    resource_changes.mode is "managed" and
+    (resource_changes.change.actions contains "create" or
+			resource_changes.change.actions is ["update"])
+}
+
+getModuleStatus = func(property) {
+    allowed = false
+    for allowedRootModuleResources as resource {
+        if property.type == resource or property.module_address != "" {
+            allowed = true
+        }
+    }
+    print("Resource ", property.address, "is outside of a module and does not currently have a Sentinel policy defined.")
+    return allowed
+}
+
+checkModuleStatus = rule {
+    all allResourceChanges as _, resourceChange {
+        getModuleStatus(resourceChange)
+    }
+}
+
+main = rule {
+    checkModuleStatus
+}
