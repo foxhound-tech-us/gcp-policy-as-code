@@ -3,7 +3,7 @@ name: Test
 on: push
 
 jobs:
-  Sentinel Test:
+  sentinel-test:
     runs-on: 'ubuntu-latest'
     steps:
       - run: | 
