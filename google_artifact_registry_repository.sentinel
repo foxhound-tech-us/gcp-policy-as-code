@@ -1,59 +1,59 @@
 import "tfplan/v2" as tfplan
 
 allGCPArtifactRegistryRepositoryResources = filter tfplan.resource_changes as _, resource_changes {
-    resource_changes.type is "google_artifact_registry_repository" and
-    resource_changes.mode is "managed" and
-    (resource_changes.change.actions contains "create" or
+	resource_changes.type is "google_artifact_registry_repository" and
+		resource_changes.mode is "managed" and
+		(resource_changes.change.actions contains "create" or
 			resource_changes.change.actions is ["update"])
 }
 
 getCMEKStatus = func(property) {
-    if property.change.after.kms_key_name else "notFound" == "notFound" {
-        if length(keys(property.change.after_unknown)) > 0 {
-            if property.change.after_unknown.kms_key_name else "notFound" == "notFound" {
-                print("Resource ", property.address, "was not provided a CMEK.")
-                return false
-            }
-        }
-        print("Resource ", property.address, "was not provided a CMEK.")
-        return false
-    }
-    if property.change.after.kms_key_name is "" or property.change.after.kms_key_name is null {
-        print("Resource ", property.address, " either has a null or \"\" CMEK key name.")
-        return false
-    }
-    return true
+	if property.change.after.kms_key_name else "notFound" == "notFound" {
+		if length(keys(property.change.after_unknown)) > 0 {
+			if property.change.after_unknown.kms_key_name else "notFound" == "notFound" {
+				print("Resource ", property.address, "was not provided a CMEK.")
+				return false
+			}
+		}
+		print("Resource ", property.address, "was not provided a CMEK.")
+		return false
+	}
+	if property.change.after.kms_key_name is "" or property.change.after.kms_key_name is null {
+		print("Resource ", property.address, " either has a null or \"\" CMEK key name.")
+		return false
+	}
+	return true
 }
 
 getFormat = func(property) {
-    if property.change.after.format else "notFound" == "notFound" {
-        if property.change.after_unknown.format else "notFound" == "notFound" {
-            print("Repository format must be provided and must be \"DOCKER\"")
-            return false
-        }
-        print("Repository format must be provided and must be \"DOCKER\"")
-        return false
-    }
-    if property.change.after.format is not "DOCKER" {
-        print("Repository format must be provided and must be \"DOCKER\"")
-        return false
-    }
-    return true
+	if property.change.after.format else "notFound" == "notFound" {
+		if property.change.after_unknown.format else "notFound" == "notFound" {
+			print("Repository format must be provided and must be \"DOCKER\"")
+			return false
+		}
+		print("Repository format must be provided and must be \"DOCKER\"")
+		return false
+	}
+	if property.change.after.format is not "DOCKER" {
+		print("Repository format must be provided and must be \"DOCKER\"")
+		return false
+	}
+	return true
 }
 
 checkCMEK = rule {
-    all allGCPArtifactRegistryRepositoryResources as _, GCPArtifactRegistryRepository {
-         getCMEKStatus(GCPArtifactRegistryRepository)
-    }
+	all allGCPArtifactRegistryRepositoryResources as _, GCPArtifactRegistryRepository {
+		getCMEKStatus(GCPArtifactRegistryRepository)
+	}
 }
 
 checkFormat = rule {
-    all allGCPArtifactRegistryRepositoryResources as _, GCPArtifactRegistryRepository {
-         getFormat(GCPArtifactRegistryRepository)
-    }
+	all allGCPArtifactRegistryRepositoryResources as _, GCPArtifactRegistryRepository {
+		getFormat(GCPArtifactRegistryRepository)
+	}
 }
 
 main = rule {
-    checkCMEK and
-    checkFormat
+	checkCMEK and
+	checkFormat
 }

@@ -3,14 +3,23 @@ name: Test
 on: push
 
 jobs:
-  sentinel-test:
+  sentinel:
+    name: 'sentinel'
     runs-on: 'ubuntu-latest'
     steps:
-      - run: | 
-          wget https://releases.hashicorp.com/sentinel/0.27.0/sentinel_0.27.0_linux_386.zip
-          unzip sentinel_0.27.0_linux_386.zip
-          rm sentinel_0.27.0_linux_386.zip
-          sudo mv sentinel /usr/local/bin
-      - name: Check out repository code
-        uses: actions/checkout@v4
-      - run: sentinel test
+      - name: 'Checkout'
+        uses: actions/checkout@master
+      - name: 'Sentinel Format'
+        uses: hashicorp/sentinel-github-actions@master
+        with:
+          stl_actions_version: 0.14.2
+          stl_actions_subcommand: 'fmt'
+          stl_actions_working_dir: '.'
+          stl_actions_comment: false
+      - name: 'Sentinel Test'
+        uses: hashicorp/sentinel-github-actions@master
+        with:
+          stl_actions_version: 0.14.2
+          stl_actions_subcommand: 'test'
+          stl_actions_working_dir: '.'
+          stl_actions_comment: false
