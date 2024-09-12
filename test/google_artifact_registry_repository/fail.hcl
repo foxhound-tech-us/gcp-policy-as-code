@@ -1,6 +1,6 @@
 mock "tfplan/v2" {
   module {
-    source = "../../testdata/mock-google-artifact-registry-repository-fail.sentinel"
+    source = "../../testdata/mock-google-artifact-registry-repository-fail.mock"
   }
 }
 
