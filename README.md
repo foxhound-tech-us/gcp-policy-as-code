@@ -66,8 +66,8 @@ There is also the `.github/` directory which contains a quick example of how to 
 1. Using either TFE or HCPTF, apply the Terraform configuration that you've written in step 1.
 
 1. Navigate to the workspace that holds the Terraform config from step 1 and navigate to the run associated with the apply executed from step 2. Once on the UI page for the run, expand the "Plan" phase and click on the button at the bottom left to download the Sentinel mock files.
-    > [!NOTE]
-    > When you download the Sentinel mock files, they will be in a zipped  directory. When unpacked, The file extension for each of these files will be `.sentinel` which can conflict with the recursive nature of the Sentinel GitHub Action when running the `fmt` functionality of the action with `.` as the `working_dir`. The file extensions for your sentinel mocks should be changed to something that is not `.sentinel`.
+
+    - Note: When you download the Sentinel mock files, they will be in a zipped  directory. When unpacked, The file extension for each of these files will be `.sentinel` which can conflict with the recursive nature of the Sentinel GitHub Action when running the `fmt` functionality of the action with `.` as the `working_dir`. The file extensions for your sentinel mocks should be changed to something that is not `.sentinel`.
 
 1. Modify your mock files to represent both "pass" and "fail" scenarios and organize them into the `test/testdata` directory.
 
